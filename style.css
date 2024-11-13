@@ -1,0 +1,31 @@
+@charset "utf-8";
+body {
+    margin: 0px;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+
+header {
+  background-color: rgba(245, 178, 177, 0.5);
+}
+
+header .gnav .menu {
+    display: flex;
+}
+header .gnav .menu li + li {
+    margin-left: 40px; /* メニューそれぞれに間隔をあけるため */
+}
+
+main {
+    flex: 1;
+    background-color: rgba(255, 253, 237, 1);
+  }
+
+footer {
+  background-color: rgba(201, 187, 155, 0.5);
+}
