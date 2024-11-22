@@ -3,7 +3,6 @@ body {
     padding-top: 90px;
     margin: 0;
   }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -58,9 +57,10 @@ header .gnav .menu li + li {
 main {
     flex: 1;
     height: 100vw;
-    
+    background: linear-gradient(0deg, rgb(158, 185, 219), rgb(8, 4, 31));
   }
 
 footer {
+  
   background-color: rgba(201, 187, 155, 0.5);
 }
