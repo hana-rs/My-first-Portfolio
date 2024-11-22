@@ -73,6 +73,65 @@ main {
   border-radius: 10px;
 }
 
+.title {
+  width: 40%;
+  height: 100%;
+  margin-bottom: 20px;
+  /*右に行くにつれて透明になる*/
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-right:0;
+  margin-left:auto;
+  padding: 100px;
+
+}
+
+.title h1 {
+  font-size: 40px;
+  font-weight: 100;
+  color:#333
+}
+
+#about{
+  width: 40%;
+  height: 100%;
+  margin-bottom: 20px;
+  /*右に行くにつれて透明になる*/
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-right:0;
+  margin-left:auto;
+  padding: 100px;
+  color:#333
+}
+#skills{
+  width: 40%;
+  height: 100%;
+  margin-bottom: 20px;
+  /*右に行くにつれて透明になる*/
+  background: linear-gradient(90deg, rgb(255, 255, 255,0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255));
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-right:auto;
+  margin-left:0;
+  padding: 100px;
+  color:#333;
+  align-items: right;
+}
+
+#skills h2{
+  display: flex;
+  justify-content: right;
+}
+
+#skills p{
+  display: flex;
+  justify-content: right;
+}
+
+
 footer {
   padding: 10px;
   text-align: center;
