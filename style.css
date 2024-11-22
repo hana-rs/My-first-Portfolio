@@ -11,7 +11,7 @@ body {
   }
 
 header {
-  width: 100%; /* 幅いっぱいを指定 */
+    width: 100%; /* 幅いっぱいを指定 */
     height: 100px; /* ヘッダーの大きさを指定 */
     background: #CCC; /* 背景色にグレーを指定 */
     padding: 20px 50px; /* ヘッダーに上下左右それぞれ余白を指定(タイトルが左にくっつきすぎないようにするため) */
@@ -24,12 +24,28 @@ header {
     align-items: center; /* 中の要素を縦に中央に揃える */
 }
 
+header .header-logo a {
+    color: #333; /* タイトルの文字色を黒にする */
+    font-weight: bold; /* タイトルの文字を太字にする */
+    text-decoration: none; /* リンクの下線を消す */
+}
+
 header .gnav .menu {
-    display: flex;
+    display: flex;/* メニューを横並びにする */
 }
 
 header .gnav .menu li {
   list-style: none; /* リストの[・]を消す */
+}
+
+header .gnav .menu li a {
+    color: #333; /* メニューの文字色を黒にする */
+    text-decoration: none; /* メニューの下線を消す */
+    font-size: 20px; /* メニューの文字サイズを20pxにする */
+    font-weight: bold; /* メニューの文字を太字にする */
+    padding: 10px; /* メニューの上下左右に余白を10pxずつつける */
+    border-radius: 5px; /* メニューの角を丸くする */
+    transition: 0.3s; /* メニューの変化を0.3秒かける */
 }
 
 header .gnav .menu li + li {
