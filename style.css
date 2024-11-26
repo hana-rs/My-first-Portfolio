@@ -31,6 +31,7 @@ header {
     align-items: center; /* 中の要素を縦に中央に揃える */
     /* ヘッダーの影をつける */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* ヘッダーが他の要素より上に来る */
 }
 
 header .header-logo a {
@@ -221,7 +222,7 @@ main {
   margin-right:160px;
 }
 
-#articles .mainpage-titles{
+.mainpage-titles{
   margin-bottom: 48px;
 }
 
@@ -243,6 +244,41 @@ main {
   font-size: 24px;
   font-weight: lighter;
   justify-content: space-between; /* 中の要素を左右に分ける */
+}
+
+.slider {
+  width: 1200px; /* スライダー全体の幅を指定 */
+  height: 100%; /* スライダー全体の高さを指定 */
+  margin: 0 auto; /* 中央寄せ */
+  position: relative; /* ドットの絶対位置を調整するために必要 */
+}
+
+.slider img {
+  width: 100%; /* 画像がスライダー幅に収まるように調整 */
+  height: auto; /* 縦横比を維持 */
+  display: block;
+  margin: 0 auto; /* 中央寄せ */
+  
+}
+/* ドットを中央揃え */
+.slick-dots {
+  text-align: center; /* ドット全体を中央揃え */
+  position: absolute; /* 必要に応じて位置を調整 */
+  bottom: -30px; /* スライダーの下に適度な余白を追加 */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ドットのデザインを調整（任意） */
+.slick-dots li button:before {
+  font-size: 48px; /* ドットのサイズ */
+  color: #888;    /* デフォルトのドットの色 */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #414141; /* アクティブなドットの色 */
 }
 
 

@@ -5,9 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
     <title>My First Web Pag</title>
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.slider').slick({
+            autoplay: true,        // 自動再生を有効化
+            dots: true,            // ナビゲーション用のドットを表示
+            arrows: false,         // 矢印を表示
+            fade: false,            // フェードの有効化
+            autoplaySpeed: 3000,   // 自動再生の速度 (ミリ秒)
+        });
+    });
+</script>
 <body>
     <div class="container">
     <header>
@@ -44,7 +58,13 @@
 
     <div id="projects">
     <h2 class="mainpage-titles">Projects</h2>
-    <p>This is a paragraph of text.</p>
+    <div>
+        <ul class="slider">
+            <li><img src="img/banner1.png" alt="期間限定 10,000円OFF"></li>
+            <li><img src="img/banner2.png" alt="期間限定 送料無料"></li>
+            <li><img src="img/banner3.png" alt="期間限定 全品半額"></li>
+        </ul>
+    </div>
     <a class="more" href="Projects/projects.html">More</a>
     </div>
 
