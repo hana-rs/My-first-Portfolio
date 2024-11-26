@@ -138,12 +138,13 @@ main {
   justify-content: center; /* 子要素を中央揃えにする */
   align-items: center; /* 垂直方向も中央揃え */
   flex-direction: column; /* 子要素を縦方向に配置 */
+  margin: 240px;
 }
 
 .mainpage-titles{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: flex;/* メニューを横並びにする */
+  flex-direction: column;/* 子要素を縦方向に配置 */
+  justify-content: center;/* 子要素を中央揃えにする */
   align-items: center;
   height: 100%;
   width: 160px;
@@ -187,7 +188,7 @@ main {
   border: 1px solid #FFFFFF; /* 枠線を追加 */
   outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
   outline-offset: 5px;        /* 外側の線と内側の線の空き具合を調整*/
-  margin: 80px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
+  margin: 20px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
   background-color: #ffffff;
 
 }
@@ -198,6 +199,21 @@ main {
   justify-content: center; /* 子要素を中央揃えにする */
   align-items: center; /* 垂直方向も中央揃え */
   flex-direction: column; /* 子要素を縦方向に配置 */
+  margin: 240px;
+}
+
+.articles-titles{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin : 20px;
+
+  text-decoration: none; /* リンクの下線を消す */
+  color: #ffffff;
+  align-items: center; /* 中の要素を縦に中央に揃える */
 }
 
 
