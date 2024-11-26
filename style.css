@@ -89,7 +89,7 @@ main {
 
 }
 
-.title h1 {
+.title {
   font-size: 40px;
   font-weight: 100;
   color:#333
@@ -133,7 +133,14 @@ main {
   justify-content: right;
 }
 
-#projects h2{
+#projects {
+  display: flex; /* フレックスボックスを使う */
+  justify-content: center; /* 子要素を中央揃えにする */
+  align-items: center; /* 垂直方向も中央揃え */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+}
+
+.mainpage-titles{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -157,31 +164,43 @@ main {
 	margin: 2px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
 }
 
-#articles h2{
+#projects p{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 160px;
-  white-space: nowrap;
-  padding-left: 700px;
-  padding-right: 700px;
-  padding-top: 30px;
-  padding-bottom: 30px;
 
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 40px;
-
-  border: 1px solid #ffffff;
-  font-size: 40px;
-  font-weight: 100;
-  border: solid 1px #ffffff;    	/* 内側の線になる一本線の枠線をひく*/
-	outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
-	outline-offset: 5px;        /* 外側の線と内側の線の空き具合を調整*/
-	margin: 2px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
+  text-decoration: none; /* リンクの下線を消す */
+  align-items: center; /* 中の要素を縦に中央に揃える */
 }
+
+.more {
+  text-align: center; /* テキストを中央揃え */
+  width: 160px; /* 必要に応じて適切な幅を指定 */
+  text-decoration: none; /* リンクの下線を消す */
+  color: #292929; /* テキストカラー */
+  font-size: 24px; /* フォントサイズ */
+  font-weight: lighter;
+  padding: 5px 20px; /* 余白を指定 */
+  border: 1px solid #FFFFFF; /* 枠線を追加 */
+  outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
+  outline-offset: 5px;        /* 外側の線と内側の線の空き具合を調整*/
+  margin: 80px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
+  background-color: #ffffff;
+
+}
+
+
+#articles {
+  display: flex; /* フレックスボックスを使う */
+  justify-content: center; /* 子要素を中央揃えにする */
+  align-items: center; /* 垂直方向も中央揃え */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+}
+
+
 
 footer {
   padding: 10px;
