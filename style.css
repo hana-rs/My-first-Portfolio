@@ -283,6 +283,30 @@ main {
   color: #414141; /* アクティブなドットの色 */
 }
 
+.slick-outer {
+  position: relative; /* slick-contentの基準点を設定 */
+}
+
+.slick-content {
+  position: absolute;
+  width: 100%;
+  bottom: 0; /* 下部に表示 */
+  left: 50%; /* 左右中央 */
+  transform: translateX(-50%); /* 中央揃え */
+  background: rgba(255, 255, 255, 0.8);
+  color: #333; /* テキスト色 */
+  z-index: 150; /* 前面表示 */
+  img{width: 100%;}/*画像を幅いっぱいに表示*/
+}
+
+.slick-content h2 {
+  font-size: 32px;
+  font-weight: 100;
+  margin: 0;
+  padding: 10px 0; /* 必要に応じて余白を設定 */
+  text-align: center; /* テキストを中央揃え */
+}
+
 
 
 footer {
