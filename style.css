@@ -251,6 +251,8 @@ main {
   height: 100%; /* スライダー全体の高さを指定 */
   margin: 0 auto; /* 中央寄せ */
   position: relative; /* ドットの絶対位置を調整するために必要 */
+  list-style: none; /* リストの[・]を消す */
+  padding-left:0
 }
 
 .slider img {
