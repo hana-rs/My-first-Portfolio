@@ -1,4 +1,8 @@
 @charset "utf-8";
+*{
+  /*フォントはYU Gothicに設定*/
+  font-family: 'Yu Gothic', sans-serif;
+}
 body {
     padding-top: 90px;
     margin: 0;
@@ -133,14 +137,6 @@ main {
   justify-content: right;
 }
 
-#projects {
-  display: flex; /* フレックスボックスを使う */
-  justify-content: center; /* 子要素を中央揃えにする */
-  align-items: center; /* 垂直方向も中央揃え */
-  flex-direction: column; /* 子要素を縦方向に配置 */
-  margin: 240px;
-}
-
 .mainpage-titles{
   display: flex;/* メニューを横並びにする */
   flex-direction: column;/* 子要素を縦方向に配置 */
@@ -165,18 +161,6 @@ main {
 	margin: 2px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
 }
 
-#projects p{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 160px;
-
-  text-decoration: none; /* リンクの下線を消す */
-  align-items: center; /* 中の要素を縦に中央に揃える */
-}
-
 .more {
   text-align: center; /* テキストを中央揃え */
   width: 160px; /* 必要に応じて適切な幅を指定 */
@@ -193,13 +177,37 @@ main {
 
 }
 
+#projects {
+  display: flex; /* フレックスボックスを使う */
+  justify-content: center; /* 子要素を中央揃えにする */
+  align-items: center; /* 垂直方向も中央揃え */
+  flex-direction: column; /* 子要素を縦方向に配置 */
+  margin-top: 240px;
+  margin-bottom: 120px;
+}
+
+#projects p{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 160px;
+
+  margin : 200px;
+
+  text-decoration: none; /* リンクの下線を消す */
+  align-items: center; /* 中の要素を縦に中央に揃える */
+}
+
 
 #articles {
   display: flex; /* フレックスボックスを使う */
   justify-content: center; /* 子要素を中央揃えにする */
   align-items: center; /* 垂直方向も中央揃え */
   flex-direction: column; /* 子要素を縦方向に配置 */
-  margin: 240px;
+  margin-top: 120px;
+  margin-bottom: 240px;
 }
 
 .articles-titles{
@@ -209,10 +217,12 @@ main {
   align-items: center;
   height: 100%;
   width: 100%;
-  margin : 20px;
+  margin : 40px;
 
   text-decoration: none; /* リンクの下線を消す */
   color: #ffffff;
+  font-size: 24px;
+  font-weight: lighter;
   align-items: center; /* 中の要素を縦に中央に揃える */
 }
 
