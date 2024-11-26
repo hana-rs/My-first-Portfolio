@@ -167,7 +167,7 @@ main {
   text-decoration: none; /* リンクの下線を消す */
   color: #292929; /* テキストカラー */
   font-size: 24px; /* フォントサイズ */
-  font-weight: lighter;
+  font-weight: 400; /* フォントウェイト */
   padding: 5px 20px; /* 余白を指定 */
   border: 1px solid #FFFFFF; /* 枠線を追加 */
   outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
@@ -210,20 +210,39 @@ main {
   margin-bottom: 240px;
 }
 
-.articles-titles{
+.articles-time{
+  margin-left:160px;
+  margin-right:240px;
+  
+}
+.articles-title{
+  /*左に寄せる*/
+  margin-left:240px;
+  margin-right:160px;
+}
+
+#articles .mainpage-titles{
+  margin-bottom: 48px;
+}
+
+.articles-list{
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
+  max-width: 1520px;
   margin : 40px;
+
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 16px;
 
   text-decoration: none; /* リンクの下線を消す */
   color: #ffffff;
   font-size: 24px;
   font-weight: lighter;
-  align-items: center; /* 中の要素を縦に中央に揃える */
+  justify-content: space-between; /* 中の要素を左右に分ける */
 }
 
 
