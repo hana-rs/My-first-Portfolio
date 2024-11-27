@@ -80,122 +80,16 @@ main {
   border-radius: 10px;
 }
 
-.title {
-  width: 40%;
-  height: 100%;
-  margin-bottom: 20px;
-  /*右に行くにつれて透明になる*/
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  border-radius: 10px;
-  margin-top: 60px;
-  margin-right:0;
-  margin-left:auto;
-  padding: 100px;
-
-}
 
 .title {
-  font-size: 40px;
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  border-bottom: 1px solid #ffffff;
+  font-size: 64px;
   font-weight: 100;
-  color:#333
+  margin-left: 100px;
+  width: 20%;
 }
 
-#about{
-  width: 40%;
-  height: 100%;
-  margin-bottom: 20px;
-  /*右に行くにつれて透明になる*/
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  border-radius: 10px;
-  margin-top: 60px;
-  margin-right:0;
-  margin-left:auto;
-  padding: 100px;
-  color:#333
-}
-#skills{
-  width: 40%;
-  height: 100%;
-  margin-bottom: 20px;
-  /*右に行くにつれて透明になる*/
-  background: linear-gradient(90deg, rgb(255, 255, 255,0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255));
-  border-radius: 10px;
-  margin-top: 60px;
-  margin-right:auto;
-  margin-left:0;
-  padding: 100px;
-  color:#333;
-  align-items: right;
-}
-
-#skills h2{
-  display: flex;
-  justify-content: right;
-}
-
-#skills p{
-  display: flex;
-  justify-content: right;
-}
-
-.mainpage-titles{
-  display: flex;/* メニューを横並びにする */
-  flex-direction: column;/* 子要素を縦方向に配置 */
-  justify-content: center;/* 子要素を中央揃えにする */
-  align-items: center;
-  height: 100%;
-  width: 160px;
-  white-space: nowrap;
-  padding-left: 700px;
-  padding-right: 700px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 40px;
-  border: 1px solid #ffffff;
-  font-size: 40px;
-  font-weight: 100;
-  border: solid 1px #ffffff;    	/* 内側の線になる一本線の枠線をひく*/
-	outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
-	outline-offset: 5px;        /* 外側の線と内側の線の空き具合を調整*/
-	margin: 2px;            	/* 外側の線を広げた分、要素の大きさを調整する*/
-}
-
-
-
-#projects {
-  display: flex; /* フレックスボックスを使う */
-  justify-content: center; /* 子要素を中央揃えにする */
-  align-items: center; /* 垂直方向も中央揃え */
-  flex-direction: column; /* 子要素を縦方向に配置 */
-  margin-top: 240px;
-  margin-bottom: 120px;
-}
-
-#projects p{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 160px;
-
-  margin : 200px;
-
-  text-decoration: none; /* リンクの下線を消す */
-  align-items: center; /* 中の要素を縦に中央に揃える */
-}
-
-
-#articles {
-  display: flex; /* フレックスボックスを使う */
-  justify-content: center; /* 子要素を中央揃えにする */
-  align-items: center; /* 垂直方向も中央揃え */
-  flex-direction: column; /* 子要素を縦方向に配置 */
-  margin-top: 120px;
-  margin-bottom: 240px;
-}
 
 .articles-time{
   margin-left:160px;
@@ -230,67 +124,6 @@ main {
   font-size: 24px;
   font-weight: lighter;
   justify-content: space-between; /* 中の要素を左右に分ける */
-}
-
-.slider {
-  width: 1200px; /* スライダー全体の幅を指定 */
-  height: 100%; /* スライダー全体の高さを指定 */
-  margin: 0 auto; /* 中央寄せ */
-  position: relative; /* ドットの絶対位置を調整するために必要 */
-  list-style: none; /* リストの[・]を消す */
-  padding-left:0
-}
-
-.slider img {
-  width: 100%; /* 画像がスライダー幅に収まるように調整 */
-  height: auto; /* 縦横比を維持 */
-  display: block;
-  margin: 0 auto; /* 中央寄せ */
-  
-}
-/* ドットを中央揃え */
-.slick-dots {
-  text-align: center; /* ドット全体を中央揃え */
-  position: absolute; /* 必要に応じて位置を調整 */
-  bottom: -30px; /* スライダーの下に適度な余白を追加 */
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  padding: 0;
-}
-
-/* ドットのデザインを調整（任意） */
-.slick-dots li button:before {
-  font-size: 48px; /* ドットのサイズ */
-  color: #888;    /* デフォルトのドットの色 */
-}
-
-.slick-dots li.slick-active button:before {
-  color: #414141; /* アクティブなドットの色 */
-}
-
-.slick-outer {
-  position: relative; /* slick-contentの基準点を設定 */
-}
-
-.slick-content {
-  position: absolute;
-  width: 100%;
-  bottom: 0; /* 下部に表示 */
-  left: 50%; /* 左右中央 */
-  transform: translateX(-50%); /* 中央揃え */
-  background: rgba(255, 255, 255, 0.8);
-  color: #333; /* テキスト色 */
-  z-index: 150; /* 前面表示 */
-  img{width: 100%;}/*画像を幅いっぱいに表示*/
-}
-
-.slick-content h2 {
-  font-size: 32px;
-  font-weight: 100;
-  margin: 0;
-  padding: 10px 0; /* 必要に応じて余白を設定 */
-  text-align: center; /* テキストを中央揃え */
 }
 
 
