@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <title>My First Web Pag</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,        // 自動再生を有効化
+        dots: true,            // ナビゲーション用のドットを表示
+        arrows: false,         // 矢印を表示
+        fade: true,            // フェードの有効化
+        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    });
+});
+</script>
+<body>
+    <div class="container">
+    <header>
+        <div class="header-logo"><a href="index.html">Rs's Website</a></div>
+        <nav class="gnav">
+            <ul class="menu">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="Projects/projectslist.html">Projects</a></li>
+                <li><a href="Articles/articleslist.html">Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+    <div class="main-contents">
+
+    <h1 class="title">Welcome to<br>Rs's Website</h1>
+
+    <div id="about">
+    <h2>About</h2>
+    <p>埼玉大学 情報工学科所属の大学2年生です。</p>
+    <p>Maximumというプログラミングサークルに所属しています。</p>
+    <p>大学生からプログラミングをはじめ、</p>
+    <p>C++でAtcoderなどの競技プログラミングに挑戦しています。</p>
+    <p>まだまだ初心者ですが、色々なことに挑戦していきたいと思っています。</p>
+    <p>趣味:野球観戦、作曲、お絵かきetc...</p>
+    </div>
+
+    <div id="skills">
+    <h2>Skills</h2>
+    <p>C++、HTML、CSS、JavaScript、Reactなど、色々勉強中です。</p>
+    <p>サークル内共同開発ではよくデザインを担当しています。</p>
+    </div>
+
+    <div id="projects">
+    <h2 class="mainpage-titles">Projects</h2>
+    <div>
+        <ul class="slider">
+            <div class="slick-outer">
+            <li><a href=""><img src="img/banner1.png"></a></li>
+            <div class="slick-content">
+                <h2>リドル・ローズハート</h2>
+                
+                </div>
+            </div>
+            <div class="slick-outer">
+                <li><a href=""><img src="img/banner2.png"></a></li>
+                <div class="slick-content">
+                    <h2>デュース・スペード</h2>
+                </div>
+            </div>
+            <div class="slick-outer">
+                <li><a href=""><img src="img/banner3.png"></a></li>
+                <div class="slick-content">
+                    <h2>ジャミル・バイパー</h2>
+                </div>
+            </div>
+        </ul>
+    </div>
+    <a class="more" href="Projects/projects.html">More</a>
+    </div>
+
+    <div id="articles">
+    <h2 class="mainpage-titles">Recent Articles</h2>
+    <a class="articles-list" href><span class="articles-time">YYYY.MM.DD</span><span class="articles-title">Webサイトを公開しました</span></a>
+    <a class="articles-list" href><span class="articles-time">YYYY.MM.DD</span><span class="articles-title">基本情報技術者試験に合格しました</span></a>
+    <a class="more" href="Articles/articles.html">More</a>
+    </div>
+
+    </div>
+    <footer>
+    <div class="footer-logo">Rs's Website</div>
+    </footer>
+</main>
+</div>
+</body>
+</html>
