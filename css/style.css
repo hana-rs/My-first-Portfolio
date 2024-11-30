@@ -193,7 +193,7 @@ main {
 .project-image{
   width: 24%;
   height: auto;
-  margin-left: 100px;
+  margin-left: 160px;
   display: block;
   align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
 }
@@ -201,6 +201,7 @@ main {
 
 .projectlist-box {
 /*縦並びにする*/
+
   display: flex;
   flex-direction: column;
   justify-content: center;
