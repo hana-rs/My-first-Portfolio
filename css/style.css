@@ -100,6 +100,86 @@ main {
   color:#333
 }
 
+.page-title {
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  border-bottom: 1px solid #ffffff;
+  font-size: 64px;
+  font-weight: 100;
+  margin-left: 100px;
+  display: inline-block;
+}
+
+.articlespage-list{
+  display: flex;
+  /*flex-direction: column;*/
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1520px;
+  margin : 40px;
+
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 16px;
+
+  text-decoration: none; /* リンクの下線を消す */
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: lighter;
+  justify-content: space-between; /* 中の要素を左右に分ける */
+}
+
+.individual-title {
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  border-bottom: 1px solid #ffffff;
+  font-size: 56px;
+  font-weight: 100;
+  margin-left: 100px;
+  margin-top: 0;
+  margin-bottom: 100px;
+  display: inline-block;
+}
+
+.subtitle {
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  border-bottom: 1px solid #ffffff;
+  font-size: 32px;
+  font-weight: 100;
+  margin-left: 100px;
+  margin-top: 0;
+  display: inline-block;
+}
+
+.article-content{
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  font-size: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
+.day {
+  font-size: 24px;
+  font-weight: 100;
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  margin-left: 100px;
+  margin-bottom: 0;
+}
+
+.back-button{
+  font-size: 24px;
+  font-weight: 100;
+  align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+  margin-top:32px;
+  margin-left: 64px;
+  margin-bottom: 0;
+}
+.back-button a{
+  color: #ffffff; /* メニューの文字色を黒にする */
+  text-decoration: none; /* メニューの下線を消す */
+}
+
+
 #about{
   width: 40%;
   height: 100%;
