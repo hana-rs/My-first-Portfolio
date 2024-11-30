@@ -182,6 +182,9 @@ main {
 }
 .projectlist-container {
   display: flex;
+  flex-direction: row; /* 横並び */
+  align-items: flex-start; /* 縦方向の揃えを開始位置に */
+  justify-content: flex-start; /* 横方向の揃えを開始位置に */
 }
 
 .project-image{
@@ -190,6 +193,16 @@ main {
   margin-left: 100px;
   display: block;
   align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
+}
+
+.projectlist-box {
+/*縦並びにする*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float:right;
+
 }
 
 #about{
