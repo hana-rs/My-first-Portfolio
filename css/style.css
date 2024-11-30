@@ -185,7 +185,10 @@ main {
   flex-direction: row; /* 横並び */
   align-items: flex-start; /* 縦方向の揃えを開始位置に */
   justify-content: flex-start; /* 横方向の揃えを開始位置に */
+  color: #ffffff;
+
 }
+
 
 .project-image{
   width: 24%;
@@ -195,14 +198,67 @@ main {
   align-self: flex-start; /*align-items: centerを無効にして、左寄せする*/
 }
 
+
 .projectlist-box {
 /*縦並びにする*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   float:right;
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 100%;
+  height: 100%;
+  margin-bottom:120px;
+}
 
+.projectlist-head {
+  display: flex;
+  flex-direction: row; /* 横並び */
+  width: 100%;
+  height: 100%;
+  margin-right: auto;
+}
+
+.project-time {
+  font-size: 20px;
+  font-weight: 100;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.project-tag {
+  display: flex;
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center;     /* 垂直方向の中央揃え */
+
+  font-size: 20px;
+  font-weight: 400;
+
+  text-align: center; /* テキストを中央揃え */
+
+  width: 120px; /* 必要に応じて適切な幅を指定 */
+  height: 36px; /* 必要に応じて適切な高さを指定 */
+
+  text-decoration: none; /* リンクの下線を消す */
+  color: #292929; /* テキストカラー */
+  padding: 0; /* 余白を指定 */
+  border: 1px solid #FFFFFF; /* 枠線を追加 */
+  outline: solid 1px #ffffff;    /* 外側の線になる一本線の枠線をひく*/
+  outline-offset: 2px;        /* 外側の線と内側の線の空き具合を調整*/
+  margin-top: auto; 
+  margin-bottom: auto;       	/* 外側の線を広げた分、要素の大きさを調整する*/
+  background-color: #ffffff;
+  
+}
+
+.project-title {
+  font-size: 28px;
+  font-weight: 100;
+  text-align: center;
+  width: 100%;
 }
 
 #about{
