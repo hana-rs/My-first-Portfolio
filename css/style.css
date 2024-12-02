@@ -6,7 +6,7 @@
 body {
     padding-top: 90px;
     margin: 0;
-    background: linear-gradient(0deg, rgb(158, 185, 219), rgb(8, 4, 31));
+    background: linear-gradient(0deg, rgb(136, 162, 194), rgb(8, 4, 31));
   }
 
 .container {
@@ -197,7 +197,8 @@ main {
   align-items: flex-start; /* 縦方向の揃えを開始位置に */
   justify-content: flex-start; /* 横方向の揃えを開始位置に */
   color: #ffffff;
-
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 
@@ -221,7 +222,7 @@ main {
   margin-right: 40px;
   width: 100%;
   height: 100%;
-  margin-bottom:120px;
+
 }
 
 .projectlist-head {
@@ -233,7 +234,7 @@ main {
 }
 
 .project-time {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
   margin-left: 40px;
   margin-right: 40px;
@@ -246,12 +247,12 @@ main {
   justify-content: center; /* 水平方向の中央揃え */
   align-items: center;     /* 垂直方向の中央揃え */
 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 
   text-align: center; /* テキストを中央揃え */
 
-  width: 120px; /* 必要に応じて適切な幅を指定 */
+  width: 112px; /* 必要に応じて適切な幅を指定 */
   height: 36px; /* 必要に応じて適切な高さを指定 */
 
   text-decoration: none; /* リンクの下線を消す */
@@ -267,10 +268,14 @@ main {
 }
 
 .project-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 100;
   text-align: center;
   width: 100%;
+}
+
+.project-title p{
+  margin: 48px;
 }
 
 .project-individual-image{
