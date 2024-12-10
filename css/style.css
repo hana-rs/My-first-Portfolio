@@ -116,6 +116,7 @@ main {
   align-items: center;
   height: 100%;
   width: 80%;
+  max-width: 1520px;
   margin : 40px;
 
   border-bottom: 1px solid #ffffff;
