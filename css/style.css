@@ -347,10 +347,10 @@ main {
 
 .more {
   text-align: center; /* テキストを中央揃え */
-  width: 160px; /* 必要に応じて適切な幅を指定 */
+  width: 12%; /* 必要に応じて適切な幅を指定 */
   text-decoration: none; /* リンクの下線を消す */
   color: #292929; /* テキストカラー */
-  font-size: 24px; /* フォントサイズ */
+  font-size: 100%; /* フォントサイズ */
   font-weight: 400; /* フォントウェイト */
   padding: 5px 20px; /* 余白を指定 */
   border: 1px solid #FFFFFF; /* 枠線を追加 */
