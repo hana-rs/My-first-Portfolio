@@ -115,8 +115,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
-  max-width: 1520px;
+  width: 80%;
   margin : 40px;
 
   border-bottom: 1px solid #ffffff;
