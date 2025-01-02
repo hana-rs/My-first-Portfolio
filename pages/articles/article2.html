@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../../css/style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <title>My First Web Pag</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,        // 自動再生を有効化
+        dots: true,            // ナビゲーション用のドットを表示
+        arrows: false,         // 矢印を表示
+        fade: true,            // フェードの有効化
+        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    });
+});
+</script>
+<body>
+    <div class="container">
+    <header>
+        <div class="header-logo"><a href="../../index.html">Rs's Website</a></div>
+        <nav class="gnav">
+            <ul class="menu">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../projectslist.html">Projects</a></li>
+                <li><a href="../articleslist.html">Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+    <div class="main-contents">
+    <div class = "back-button">
+        <a href="../articleslist.html">←Back</a>
+    </div>
+    <p class="day">2025.1.1</p>
+    <h2 class="individual-title">基本情報技術者試験に合格しました</h2>
+    <h2 class="subtitle">きっかけ</h2>
+    <div class="article-content">
+    <p>大学2年生の春に、大学の授業で基本情報技術者試験の勉強を始めました。</p>
+    <p>通年の必修授業だったこともあり、もう夏休みに先に受けてしまおうということにしました。</p>
+    </div>
+    <h2 class="subtitle">勉強時間、勉強方法</h2>
+    <div class="article-content">
+        <p>だいたい2週間くらいで詰めました。</p>
+        <p>まずYoutubeで授業動画を視聴し、視聴が終わったら基本情報技術者試験の過去問道場で該当範囲をひたすら回しました。</p>
+        <p>過去問道場は無料で使えるので、おすすめです。</p>
+        <p>マネジメント系とストラテジ系の勉強は、過去問が多すぎて全く回せなかったです。</p>
+        <p>過去問は大体1000問以上解きました。</p>
+        <p>競プロの経験があったので、B問題の対策は特にせず、前日に過去問を一通り解いて終わりました。</p>
+    </div>
+    <h2 class="subtitle">試験当日</h2>
+    <div class="article-content">
+        <p>夏休み最終日の9月26日、大宮テストセンターで受験しました。</p>
+        <p>A問題がなかなか難しく、確定で解けているだろうという問題がちょうど6割の感触だったので、とても不安でした。</p>
+        <p>B問題は簡単に解くことができ、時間も余らせることができました。</p>
+        <p>結果は、A問題が760/1000点、B問題が885/1000点でした。</p>
+    </div>
+    <h2 class="subtitle">今後の目標</h2>
+    <div class="article-content">
+        <p>今後は、春に行われる応用情報技術者試験に向けて勉強を進めていきたいと思います。</p>
+    </div>
+    </div>
+    <footer>
+    <div class="footer-logo">Rs's Website</div>
+    </footer>
+</main>
+</div>
+</body>
+</html>
