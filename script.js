@@ -7,6 +7,26 @@ $(document).ready(function () {
         autoplaySpeed: 3000,   // 自動再生の速度 (ミリ秒)
     });
 
+    // モバイル版でのアニメーション制御
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // ページロード時のアニメーション開始
+    if (isMobile()) {
+        // 少し遅延してからアニメーションを開始
+        setTimeout(() => {
+            document.body.classList.add('animations-started');
+        }, 100);
+    }
+
+    // リサイズ時の処理
+    window.addEventListener('resize', function() {
+        if (isMobile()) {
+            document.body.classList.add('animations-started');
+        }
+    });
+
     // ハンバーガーメニューの制御
     const hamburger = document.getElementById('hamburger');
     const gnav = document.getElementById('gnav');
