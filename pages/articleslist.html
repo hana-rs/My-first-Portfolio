@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
     <title>My First Web Pag</title>
+<script src="../../js/main.js"></script>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../js/main.js"></script>
 <script>
     $(document).ready(function () {
     $('.slider').slick({
@@ -22,12 +24,39 @@
         autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
     });
 });
+
+// ハンバーガーメニューの制御
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const gnav = document.getElementById('gnav');
+    
+    if (hamburger && gnav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            gnav.classList.toggle('active');
+        });
+        
+        // メニュー項目がクリックされたときにメニューを閉じる
+        const menuLinks = gnav.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                gnav.classList.remove('active');
+            });
+        });
+    }
+});
 </script>
 <body>
     <div class="container">
     <header>
         <div class="header-logo"><a href="../index.html">Rs's Website</a></div>
-        <nav class="gnav">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="gnav" id="gnav">
             <ul class="menu">
                 <li><a href="../index.html#about">About</a></li>
                 <li><a href="../index.html#skills">Skills</a></li>

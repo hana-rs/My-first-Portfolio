@@ -60,6 +60,39 @@ header .gnav .menu li + li {
   margin-left: 40px;
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
 main {
   flex: 1;
   height: 100vw;
@@ -518,45 +551,189 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Tablet Portrait */
+@media (max-width: 1024px) {
+  body {
+    padding-top: 120px;
+  }
+
   header {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
+    padding: 15px 30px;
+  }
+
+  .title, #about, #skills {
+    width: 60%;
+    padding: 60px;
+  }
+
+  .page-title {
+    font-size: 48px;
+    margin-left: 60px;
+  }
+
+  .individual-title {
+    font-size: 40px;
+    margin-left: 60px;
+  }
+
+  .subtitle {
+    font-size: 28px;
+    margin-left: 60px;
+  }
+
+  .article-content {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .project-image {
+    width: 30%;
+    margin-left: 120px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  header {
+    flex-direction: row;
+    height: 70px;
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center;
   }
 
   header .header-logo a {
     font-size: 24px;
+    margin-bottom: 0;
   }
 
+  /* ハンバーガーメニューを表示 */
+  .hamburger {
+    display: flex !important;
+    z-index: 11;
+  }
+
+  /* デスクトップメニューを完全に非表示 */
   header .gnav .menu {
+    display: none !important;
+  }
+
+  /* モバイルメニューのスタイル */
+  header .gnav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e0e0e0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  header .gnav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+  }
+
+  header .gnav.active .menu {
+    display: flex !important;
     flex-direction: column;
-    align-items: center;
+    padding: 20px 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  header .gnav .menu li {
+    margin: 0;
+    text-align: center;
+    width: 100%;
   }
 
   header .gnav .menu li + li {
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 15px;
+  }
+
+  header .gnav .menu li a {
+    font-size: 18px;
+    padding: 12px 20px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  header .gnav .menu li a:hover {
+    background-color: #f5f5f5;
   }
 
   .title, #about, #skills {
-    width: 80%;
-    padding: 20px;
+    width: 85%;
+    padding: 30px 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .page-title, .individual-title, .subtitle, .article-content, .day, .back-button {
-    margin-left: 20px;
-    margin-right: 20px;
+  .title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 40px;
+    margin-left: 30px;
+    text-align: center;
+  }
+
+  .individual-title {
+    font-size: 32px;
+    margin-left: 30px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 24px;
+    margin-left: 30px;
+  }
+
+  .article-content {
+    font-size: 18px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .day, .back-button {
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .project-image {
-    width: 100%;
-    margin-left: 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 
   .projectlist-container {
     flex-direction: column;
     align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .projectlist-box {
@@ -565,14 +742,25 @@ footer {
     margin-right: 0;
   }
 
+  .project-title {
+    font-size: 20px;
+  }
+
+  .project-title p {
+    margin: 20px;
+  }
+
   .mainpage-titles {
-    width: 100%;
-    padding: 10px;
+    width: 95%;
+    padding: 20px 10px;
+    font-size: 32px;
+    margin: 20px auto;
   }
 
   .more {
     width: auto;
-    padding: 10px 20px;
+    padding: 12px 24px;
+    font-size: 16px;
   }
 
   #projects, #articles {
@@ -583,18 +771,298 @@ footer {
   .articles-list, .articlespage-list {
     flex-direction: column;
     align-items: center;
+    width: 95%;
+    margin: 20px auto;
+    text-align: center;
   }
 
   .slider {
-    width: 100%;
+    width: 95%;
   }
 
-  .slick-content {
-    padding: 10px;
+  .slick-content h2 {
+    font-size: 24px;
+    padding: 15px 10px;
+  }
+
+  .Pagination-Item-Link {
+    width: 35px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* Additional Touch and Accessibility Improvements */
+  /* Improve touch targets */
+  header .gnav .menu li a,
+  .more,
+  .project-tag,
+  .Pagination-Item-Link {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Better text readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Improve form and interactive elements */
+  input, button, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Better spacing for mobile */
+  .main-contents {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  /* Improved image handling */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better table responsiveness */
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  body {
+    padding-top: 70px;
+  }
+
+  header {
+    padding: 10px 15px;
+    height: 60px;
+  }
+
+  header .header-logo a {
+    font-size: 20px;
+  }
+
+  .hamburger {
+    width: 25px;
+    height: 20px;
+  }
+
+  header .gnav .menu li a {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .title, #about, #skills {
+    width: 90%;
+    padding: 20px 15px;
+    margin: 20px auto;
+  }
+
+  .title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 32px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .individual-title {
+    font-size: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .article-content {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.6;
+  }
+
+  .day, .back-button {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+  }
+
+  .project-image {
+    width: 90%;
+    margin: 0 auto 20px auto;
+  }
+
+  .projectlist-container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .project-title {
+    font-size: 18px;
+  }
+
+  .project-title p {
+    margin: 15px;
+  }
+
+  .project-tag {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .project-time {
+    font-size: 14px;
+    margin: 8px 20px;
+  }
+
+  .mainpage-titles {
+    width: 98%;
+    padding: 15px 8px;
+    font-size: 24px;
+    margin: 15px auto;
+  }
+
+  .more {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  #projects, #articles {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .articles-list, .articlespage-list {
+    width: 98%;
+    margin: 15px auto;
+    font-size: 18px;
+    padding: 15px 10px;
+  }
+
+  .articles-time, .articles-title {
+    margin: 5px;
+    text-align: center;
+  }
+
+  .slider {
+    width: 98%;
+  }
+
+  .slick-content h2 {
+    font-size: 20px;
+    padding: 10px 8px;
+  }
+
+  .slick-dots li button:before {
+    font-size: 36px;
   }
 
   .Pagination-Item-Link {
     width: 30px;
     height: 36px;
+    font-size: 14px;
+  }
+
+  .Pagination > * + * {
+    margin-left: 8px;
+  }
+
+  footer {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 320px) {
+  body {
+    padding-top: 60px;
+  }
+
+  header {
+    height: 50px;
+    padding: 8px 12px;
+  }
+
+  header .header-logo a {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    width: 22px;
+    height: 18px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .individual-title {
+    font-size: 20px;
+  }
+
+  .mainpage-titles {
+    font-size: 20px;
+    padding: 12px 5px;
+  }
+
+  .articles-list, .articlespage-list {
+    font-size: 16px;
+  }
+
+  .project-tag {
+    width: 70px;
+    height: 26px;
+    font-size: 12px;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles if needed */
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  header, .hamburger {
+    display: none !important;
+  }
+  
+  body {
+    padding-top: 0 !important;
+    background: white !important;
+    color: black !important;
   }
 }
