@@ -158,11 +158,6 @@
     margin-bottom: 0;
   }
 
-  /* SNSリンクをモバイルで非表示 */
-  .header-social {
-    display: none;
-  }
-
   /* ハンバーガーメニューを表示 */
   .hamburger {
     display: flex !important;
@@ -197,7 +192,7 @@
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
-    max-height: 300px;
+    max-height: 500px;
   }
 
   header .gnav.active .menu {
@@ -206,6 +201,50 @@
     padding: 20px 0;
     margin: 0;
     list-style: none;
+  }
+
+  /* モバイル版ソーシャルメニュー */
+  .social-menu {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+
+  .social-menu .social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    padding: 8px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    background: rgba(0, 0, 0, 0.05);
+    min-height: 44px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  .social-menu .social-link:hover {
+    background-color: rgba(245, 245, 245, 0.8);
+    transform: translateY(-1px);
+  }
+
+  .social-menu .social-link.twitter:hover {
+    background: #1da1f2;
+    color: white;
+  }
+
+  .social-menu .social-link.github:hover {
+    background: #333;
+    color: white;
   }
 
   header .gnav .menu li {

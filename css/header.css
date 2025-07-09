@@ -21,48 +21,14 @@ header .header-logo a {
   text-decoration: none;
 }
 
-/* SNSリンク */
-.header-social {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: #333;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.social-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.social-link.twitter:hover {
-  background: #1da1f2;
-  color: white;
-}
-
-.social-link.github:hover {
-  background: #333;
-  color: white;
-}
-
-.social-link svg {
-  width: 20px;
-  height: 20px;
-}
-
 header .gnav .menu {
   display: flex;
+}
+
+header .gnav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 header .gnav .menu li {
@@ -113,4 +79,39 @@ header .gnav .menu li + li {
 
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ソーシャルメニュー */
+.social-menu {
+  display: flex !important;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-menu .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.social-menu .social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-menu .social-link.twitter:hover {
+  background: #1da1f2;
+  color: white;
+}
+
+.social-menu .social-link.github:hover {
+  background: #333;
+  color: white;
 }
