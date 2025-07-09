@@ -419,7 +419,7 @@
   .project-time {
     font-size: 15px;
     font-weight: 500;
-    margin: 0 0 8px 0;
+    margin: 0;
     opacity: 0.85;
     color: #bbbbbb;
     text-align: left;
@@ -678,7 +678,7 @@
   .project-time {
     font-size: 9px;
     text-align: left;
-    margin: 0 0 3px 0;
+    margin: 0;
     opacity: 0.8;
     color: #bbbbbb;
   }
@@ -856,7 +856,7 @@
   .project-time {
     font-size: 7px;
     text-align: left;
-    margin: 6px 0 4px 0;
+    margin: 0;
   }
 
   .day, .back-button {
@@ -968,7 +968,7 @@
   .project-time {
     font-size: 13px;
     text-align: left;
-    margin: 0 0 6px 0;
+    margin: 0;
     opacity: 0.85;
     color: #bbbbbb;
     letter-spacing: 0.2px;
@@ -1065,7 +1065,7 @@
   .project-time {
     font-size: 12px;
     text-align: left;
-    margin: 0 0 4px 0;
+    margin: 0;
     opacity: 0.8;
     color: #bbbbbb;
   }
