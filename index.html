@@ -8,22 +8,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="css/style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="css/carousel.css" /> <!-- カスタムカルーセル -->
     <meta name="robots" content="noindex">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
     <title>Rs's Website</title>
 </head>
-<script>
-    // Slickカルーセルが確実に動作するように追加の初期化処理
-    $(document).ready(function() {
-        // DOM完全読み込み後に再度カルーセルを初期化
-        setTimeout(function() {
-            if (typeof generateHomepageCarousel === 'function') {
-                generateHomepageCarousel();
-            }
-        }, 500);
-    });
-</script>
 <body>
     <div class="container">
     <header>
@@ -65,9 +53,14 @@
 
     <div id="projects">
     <h2 class="mainpage-titles">Projects</h2>
-        <ul class="slider">
-            <!-- プロジェクトスライドはJavaScriptで動的に生成されます -->
-        </ul>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <!-- プロジェクトスライドはJavaScriptで動的に生成されます -->
+            </div>
+            <div class="carousel-dots"></div>
+            <button class="carousel-nav prev" aria-label="前のスライド">‹</button>
+            <button class="carousel-nav next" aria-label="次のスライド">›</button>
+        </div>
     <a class="more" href="pages/projectslist.html">More</a>
     </div>
 
@@ -85,23 +78,11 @@
 </div>
 
 <!-- JavaScript の読み込み -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/carousel.js"></script>
 <script src="js/main.js"></script>
 <script src="js/stars.js"></script>
 <script src="js/projects-data.js"></script>
 <script src="js/articles-data.js"></script>
 <script src="js/article-manager.js"></script>
-<script>
-    // Slickカルーセルが確実に動作するように追加の初期化処理
-    $(document).ready(function() {
-        // DOM完全読み込み後に再度カルーセルを初期化
-        setTimeout(function() {
-            if (typeof generateHomepageCarousel === 'function') {
-                generateHomepageCarousel();
-            }
-        }, 500);
-    });
-</script>
 </body>
 </html>

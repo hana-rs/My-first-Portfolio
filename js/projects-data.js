@@ -151,20 +151,19 @@ function filterProjectsByTag(tag) {
 
 // トップページのカルーセルを生成する関数
 function generateHomepageCarousel() {
-    const slider = document.querySelector('.slider');
+    console.log('generateHomepageCarousel called'); // デバッグ用
     
-    if (!slider) {
-        console.log('カルーセル要素が見つかりません（トップページ以外の可能性があります）');
+    // カルーセルインスタンスが存在しない場合は初期化を待つ
+    if (!projectCarousel) {
+        console.log('カルーセルが初期化されていません。少し待ってから再試行します。');
+        setTimeout(() => {
+            generateHomepageCarousel();
+        }, 100);
         return;
     }
 
-    // 既存のSlickを破棄（存在する場合）
-    if (typeof $ !== 'undefined' && $.fn.slick && $(slider).hasClass('slick-initialized')) {
-        $(slider).slick('unslick');
-    }
-
     // 既存のスライドをクリア
-    slider.innerHTML = '';
+    projectCarousel.clear();
 
     // プロジェクトデータを日付順（新しい順）でソート
     const sortedProjects = projectsData.sort((a, b) => {
@@ -173,45 +172,18 @@ function generateHomepageCarousel() {
         return dateB - dateA;
     });
 
+    console.log('ソートされたプロジェクトデータ:', sortedProjects); // デバッグ用
+
     // 最新の3件をカルーセルに追加
     const latestProjects = sortedProjects.slice(0, 3);
+    console.log('表示する最新プロジェクト:', latestProjects); // デバッグ用
     
-    latestProjects.forEach(project => {
-        const slideElement = createCarouselSlide(project);
-        slider.appendChild(slideElement);
+    latestProjects.forEach((project, index) => {
+        console.log(`プロジェクト${index + 1}をカルーセルに追加:`, project); // デバッグ用
+        projectCarousel.addSlide(project);
     });
-
-    // Slickカルーセルを初期化（jQueryが利用可能な場合）
-    if (typeof $ !== 'undefined' && $.fn.slick) {
-        // 少し遅延を入れてSlickを初期化
-        setTimeout(() => {
-            $(slider).slick({
-                autoplay: true,
-                dots: true,
-                arrows: false,
-                fade: true,
-                autoplaySpeed: 5000,
-                adaptiveHeight: true
-            });
-        }, 100);
-    } else {
-        console.warn('jQuery または Slick が読み込まれていません');
-    }
-}
-
-// カルーセル用のスライド要素を作成する関数
-function createCarouselSlide(project) {
-    const slideOuter = document.createElement('div');
-    slideOuter.className = 'slick-outer';
-
-    slideOuter.innerHTML = `
-        <li><a href="pages/${project.link}"><img src="${project.homeImage || project.image}" alt="${project.title}"></a></li>
-        <div class="slick-content">
-            <h2>${project.title}</h2>
-        </div>
-    `;
-
-    return slideOuter;
+    
+    console.log('カルーセルの生成完了'); // デバッグ用
 }
 
 // プロジェクト追加時にカルーセルも更新する関数を修正
@@ -250,17 +222,21 @@ function updateProject(projectId, updatedData) {
 
 // DOM読み込み完了時にプロジェクトリストとカルーセルを生成
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('projects-data.js: DOMContentLoaded イベント発火'); // デバッグ用
     generateProjectsList();
     
-    // jQueryが読み込まれるまで待機してからカルーセルを初期化
+    // カルーセルが初期化されるまで待機してからカルーセルを生成
     function initCarouselWhenReady() {
-        if (typeof $ !== 'undefined' && $.fn.slick) {
+        if (typeof projectCarousel !== 'undefined' && projectCarousel) {
             generateHomepageCarousel();
         } else {
-            // jQueryがまだ読み込まれていない場合は100ms後に再試行
+            // カルーセルがまだ初期化されていない場合は100ms後に再試行
             setTimeout(initCarouselWhenReady, 100);
         }
     }
     
-    initCarouselWhenReady();
+    setTimeout(() => {
+        console.log('projects-data.js: カルーセル初期化待機開始'); // デバッグ用
+        initCarouselWhenReady();
+    }, 200);
 });
