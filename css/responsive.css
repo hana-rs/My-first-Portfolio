@@ -513,7 +513,7 @@
     width: auto;
     min-width: 60px;
     height: auto;
-    font-size: 9px;
+    font-size: 12px;
     padding: 4px 8px;
     border-radius: 4px;
     margin: 8px auto;
@@ -710,7 +710,7 @@
     width: auto;
     min-width: 50px;
     height: auto;
-    font-size: 7px;
+    font-size: 10px;
     padding: 3px 6px;
     margin: 5px auto;
     display: block;
@@ -812,7 +812,7 @@
   .more {
     min-width: 100px;
     padding: 12px 24px;
-    font-size: 14px;
+    font-size: 16px;
     margin: 20px auto;
   }
 
@@ -915,7 +915,7 @@
   .more {
     min-width: 80px;
     padding: 10px 20px;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .mainpage-titles {
