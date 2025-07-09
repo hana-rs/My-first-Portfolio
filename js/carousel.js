@@ -18,6 +18,10 @@ class CustomCarousel {
     init() {
         this.bindEvents();
         this.startAutoplay();
+        
+        // テスト用のダミーコンテンツを追加
+        console.log('カルーセル初期化完了、テスト用コンテンツを追加');
+        this.addTestSlide();
     }
     
     addSlide(slideData) {
@@ -40,8 +44,11 @@ class CustomCarousel {
         // 画像パスのフォールバック処理
         const imagePath = slideData.homeImage || slideData.image || 'img/banner1.png';
         
+        // リンクパスの処理 - トップページからのパスに調整
+        const linkPath = slideData.link.startsWith('pages/') ? slideData.link : `pages/${slideData.link}`;
+        
         slide.innerHTML = `
-            <a href="pages/${slideData.link}">
+            <a href="${linkPath}">
                 <img src="${imagePath}" alt="${slideData.title}" loading="lazy" 
                      onerror="console.error('画像読み込みエラー:', this.src); this.style.display='none';">
             </a>
@@ -50,7 +57,7 @@ class CustomCarousel {
             </div>
         `;
         
-        console.log('スライド要素作成:', slideData.title, 'パス:', imagePath); // デバッグ用
+        console.log('スライド要素作成:', slideData.title, 'パス:', imagePath, 'リンク:', linkPath); // デバッグ用
         
         return slide;
     }
@@ -196,6 +203,17 @@ class CustomCarousel {
         this.pauseAutoplay();
         // イベントリスナーの削除等、必要に応じて追加
     }
+    
+    addTestSlide() {
+        const testSlide = {
+            title: "テストスライド",
+            homeImage: "img/banner1.png",
+            link: "projects/project1.html"
+        };
+        
+        console.log('テストスライドを追加:', testSlide);
+        this.addSlide(testSlide);
+    }
 }
 
 // グローバルなカルーセルインスタンス
@@ -209,6 +227,12 @@ function initializeProjectCarousel() {
     
     if (carouselContainer) {
         try {
+            if (projectCarousel) {
+                console.log('既存のカルーセルを破棄します');
+                projectCarousel.destroy();
+                projectCarousel = null;
+            }
+            
             projectCarousel = new CustomCarousel(carouselContainer);
             console.log('カスタムカルーセルが初期化されました');
             
@@ -218,6 +242,8 @@ function initializeProjectCarousel() {
                 setTimeout(() => {
                     generateHomepageCarousel();
                 }, 50);
+            } else {
+                console.log('generateHomepageCarousel関数が定義されていません');
             }
             
         } catch (error) {
@@ -231,13 +257,41 @@ function initializeProjectCarousel() {
 // DOMが読み込まれたら初期化
 document.addEventListener('DOMContentLoaded', () => {
     console.log('carousel.js: DOMContentLoaded'); // デバッグ用
-    initializeProjectCarousel();
+    setTimeout(() => {
+        initializeProjectCarousel();
+    }, 100);
 });
 
 // さらに確実にするため、window.loadでも試行
 window.addEventListener('load', () => {
     console.log('carousel.js: window load'); // デバッグ用
-    if (!projectCarousel) {
-        initializeProjectCarousel();
+    setTimeout(() => {
+        if (!projectCarousel) {
+            initializeProjectCarousel();
+        }
+    }, 200);
+});
+
+// デバッグ用の関数をウィンドウオブジェクトに追加
+window.debugCarousel = function() {
+    console.log('=== カルーセルデバッグ情報 ===');
+    console.log('projectCarousel:', projectCarousel);
+    console.log('カルーセルコンテナ:', document.querySelector('.carousel-container'));
+    console.log('カルーセルラッパー:', document.querySelector('.carousel-wrapper'));
+    console.log('カルーセルドット:', document.querySelector('.carousel-dots'));
+    console.log('プロジェクトデータ:', projectsData);
+    console.log('===============================');
+    
+    if (projectCarousel) {
+        console.log('カルーセルスライド数:', projectCarousel.slides.length);
+        console.log('現在のスライド:', projectCarousel.currentSlide);
     }
+};
+
+// ページ読み込み後にデバッグ情報を表示
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        console.log('デバッグ関数を実行中...');
+        window.debugCarousel();
+    }, 1000);
 });

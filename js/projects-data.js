@@ -245,17 +245,22 @@ document.addEventListener('DOMContentLoaded', function() {
     generateProjectsList();
     
     // カルーセルが初期化されるまで待機してからカルーセルを生成
-    function initCarouselWhenReady() {
-        console.log('projects-data.js: カルーセル初期化チェック中...'); // デバッグ用
+    function initCarouselWhenReady(retryCount = 0) {
+        console.log(`projects-data.js: カルーセル初期化チェック中... (試行 ${retryCount + 1})`); // デバッグ用
         console.log('projectCarousel存在:', typeof projectCarousel !== 'undefined' && projectCarousel); // デバッグ用
+        console.log('generateHomepageCarousel存在:', typeof generateHomepageCarousel !== 'undefined'); // デバッグ用
         
         if (typeof projectCarousel !== 'undefined' && projectCarousel) {
             console.log('projects-data.js: カルーセル生成開始'); // デバッグ用
             generateHomepageCarousel();
-        } else {
+        } else if (retryCount < 50) { // 最大5秒間待機
             // カルーセルがまだ初期化されていない場合は100ms後に再試行
             console.log('projects-data.js: カルーセル未初期化、再試行中...'); // デバッグ用
-            setTimeout(initCarouselWhenReady, 100);
+            setTimeout(() => {
+                initCarouselWhenReady(retryCount + 1);
+            }, 100);
+        } else {
+            console.error('projects-data.js: カルーセルの初期化がタイムアウトしました');
         }
     }
     
@@ -270,24 +275,28 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     console.log('projects-data.js: window load イベント発火'); // デバッグ用
     
-    if (typeof projectCarousel !== 'undefined' && projectCarousel) {
-        console.log('projects-data.js: window load時にカルーセル生成'); // デバッグ用
-        generateHomepageCarousel();
-    } else {
-        console.log('projects-data.js: window load時もカルーセル未初期化'); // デバッグ用
-        
-        // 最後の手段として、直接初期化を試行
-        setTimeout(() => {
-            if (typeof initializeProjectCarousel === 'function') {
-                console.log('projects-data.js: カルーセルを強制初期化'); // デバッグ用
-                initializeProjectCarousel();
-                
-                setTimeout(() => {
-                    if (projectCarousel) {
-                        generateHomepageCarousel();
-                    }
-                }, 100);
-            }
-        }, 500);
-    }
+    setTimeout(() => {
+        if (typeof projectCarousel !== 'undefined' && projectCarousel) {
+            console.log('projects-data.js: window load時にカルーセル生成'); // デバッグ用
+            generateHomepageCarousel();
+        } else {
+            console.log('projects-data.js: window load時もカルーセル未初期化'); // デバッグ用
+            
+            // 最後の手段として、直接初期化を試行
+            setTimeout(() => {
+                if (typeof initializeProjectCarousel === 'function') {
+                    console.log('projects-data.js: カルーセルを強制初期化'); // デバッグ用
+                    initializeProjectCarousel();
+                    
+                    setTimeout(() => {
+                        if (projectCarousel) {
+                            generateHomepageCarousel();
+                        }
+                    }, 100);
+                } else {
+                    console.error('projects-data.js: initializeProjectCarousel関数が見つかりません');
+                }
+            }, 500);
+        }
+    }, 300);
 });

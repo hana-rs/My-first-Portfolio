@@ -54,10 +54,19 @@ function generateArticlesList() {
     // ページタイトルの後に記事を挿入
     const pageTitle = articlesContainer.querySelector('.page-title');
     
-    sortedArticles.forEach(article => {
-        const articleElement = createArticleElement(article, false); // false = 記事リストページ用
-        pageTitle.insertAdjacentElement('afterend', articleElement);
-    });
+    if (pageTitle) {
+        sortedArticles.forEach(article => {
+            const articleElement = createArticleElement(article, false); // false = 記事リストページ用
+            pageTitle.insertAdjacentElement('afterend', articleElement);
+        });
+    } else {
+        // ページタイトルが見つからない場合は、コンテナに直接追加
+        console.log('.page-title要素が見つかりません。コンテナに直接追加します。');
+        sortedArticles.forEach(article => {
+            const articleElement = createArticleElement(article, false);
+            articlesContainer.appendChild(articleElement);
+        });
+    }
 }
 
 // トップページの記事リストを生成する関数
@@ -92,18 +101,22 @@ function generateHomepageArticles() {
     
     const moreButton = articlesSection.querySelector('.more');
     console.log('Moreボタン:', moreButton); // デバッグ用
-    
-    if (!moreButton) {
-        console.error('Moreボタンが見つかりません');
-        return;
-    }
-    
     // Moreボタンの前に記事を挿入（正しい順序で表示）
-    latestArticles.forEach((article, index) => {
-        console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
-        const articleElement = createArticleElement(article, true); // true = トップページ用
-        moreButton.insertAdjacentElement('beforebegin', articleElement);
-    });
+    if (moreButton) {
+        latestArticles.forEach((article, index) => {
+            console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
+            const articleElement = createArticleElement(article, true); // true = トップページ用
+            moreButton.insertAdjacentElement('beforebegin', articleElement);
+        });
+    } else {
+        // Moreボタンが見つからない場合は、記事セクションに直接追加
+        console.log('Moreボタンが見つかりません。記事セクションに直接追加します。');
+        latestArticles.forEach((article, index) => {
+            console.log(`記事${index + 1}を追加中:`, article); // デバッグ用
+            const articleElement = createArticleElement(article, true);
+            articlesSection.appendChild(articleElement);
+        });
+    }
     
     console.log('記事の挿入完了'); // デバッグ用
 }
