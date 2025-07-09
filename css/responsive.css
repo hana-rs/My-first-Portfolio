@@ -68,6 +68,24 @@
     padding: 20px;
   }
 
+  /* プロジェクトリスト専用レスポンシブ調整 */
+  .projectlist-container .projectlist-head {
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 0 4px;
+  }
+
+  .projectlist-container .project-tag {
+    font-size: 11px;
+    padding: 5px 10px;
+    max-width: 100%;
+  }
+
+  .projectlist-container .project-time {
+    font-size: 13px;
+  }
+
   .project-image {
     height: 180px;
   }
@@ -329,6 +347,28 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
+  /* モバイル版プロジェクトリスト専用調整 */
+  .projectlist-container .projectlist-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .projectlist-container .project-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 15px;
+    max-width: calc(100% - 20px);
+  }
+
+  .projectlist-container .project-time {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
   .projectlist-container:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-3px);
@@ -364,27 +404,30 @@
   }
 
   .project-time {
-    font-size: 14px;
-    font-weight: 400;
-    margin: 15px 0 10px 0;
-    opacity: 0.9;
-    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    opacity: 0.85;
+    color: #bbbbbb;
     text-align: left;
+    letter-spacing: 0.3px;
   }
 
   .project-tag {
     display: inline-block;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 6px 12px;
-    margin: 5px 5px 0 0;
-    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 15px;
+    margin: 0;
+    border-radius: 22px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
     outline: none;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
+    text-transform: capitalize;
+    letter-spacing: 0.2px;
   }
 
   .project-tag:hover {
@@ -524,12 +567,15 @@
   }
 
   .project-tag {
-    width: 60px;
-    height: 24px;
+    display: inline-block;
+    width: auto;
+    height: auto;
     font-size: 9px;
-    border-radius: 2px;
-    padding: 2px 4px;
-    margin: 2px 2px 0 0;
+    border-radius: 12px;
+    padding: 4px 8px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0;
     box-sizing: border-box;
   }
 
@@ -619,7 +665,9 @@
   .project-time {
     font-size: 9px;
     text-align: left;
-    margin: 8px 0 6px 0;
+    margin: 0 0 3px 0;
+    opacity: 0.8;
+    color: #bbbbbb;
   }
 
   .day, .back-button {
@@ -719,11 +767,14 @@
   }
 
   .project-tag {
-    width: 40px;
-    height: 20px;
-    font-size: 7px;
-    padding: 1px 2px;
-    margin: 1px 1px 0 0;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-size: 8px;
+    padding: 3px 6px;
+    margin: 0;
+    border-radius: 10px;
+    font-weight: 600;
   }
 
   .slick-content h2 {
@@ -879,13 +930,18 @@
   .project-time {
     font-size: 13px;
     text-align: left;
-    margin: 12px 0 8px 0;
+    margin: 0 0 6px 0;
+    opacity: 0.85;
+    color: #bbbbbb;
+    letter-spacing: 0.2px;
   }
 
   .project-tag {
     font-size: 11px;
-    padding: 5px 10px;
-    margin: 3px 3px 0 0;
+    padding: 6px 12px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.1px;
   }
 
   /* ArticleListの小画面版修正 */
@@ -971,13 +1027,16 @@
   .project-time {
     font-size: 12px;
     text-align: left;
-    margin: 10px 0 8px 0;
+    margin: 0 0 4px 0;
+    opacity: 0.8;
+    color: #bbbbbb;
   }
 
   .project-tag {
     font-size: 10px;
-    padding: 4px 8px;
-    margin: 2px 2px 0 0;
+    padding: 5px 10px;
+    margin: 0;
+    font-weight: 600;
   }
 }
 
