@@ -169,6 +169,11 @@
     display: none !important;
   }
 
+  /* デスクトップ版ソーシャルメニューも非表示 */
+  header .gnav .social-menu {
+    display: none !important;
+  }
+
   /* モバイルメニューのスタイル */
   header .gnav {
     position: absolute;
@@ -193,29 +198,34 @@
     opacity: 1;
     visibility: visible;
     max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   header .gnav.active .menu {
     display: flex !important;
     flex-direction: column;
+    align-items: center;
     padding: 20px 0;
     margin: 0;
     list-style: none;
+    width: 100%;
   }
 
-  /* モバイル版ソーシャルメニュー */
-  .social-menu {
+  header .gnav.active .social-menu {
     display: flex !important;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    padding-top: 15px;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 10px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
   }
 
-  .social-menu .social-link {
+  header .gnav.active .social-menu .social-link {
     width: 50px;
     height: 50px;
     border-radius: 10px;
@@ -232,17 +242,17 @@
     transition: all 0.2s ease;
   }
 
-  .social-menu .social-link:hover {
+  header .gnav.active .social-menu .social-link:hover {
     background-color: rgba(245, 245, 245, 0.8);
     transform: translateY(-1px);
   }
 
-  .social-menu .social-link.twitter:hover {
+  header .gnav.active .social-menu .social-link.twitter:hover {
     background: #1da1f2;
     color: white;
   }
 
-  .social-menu .social-link.github:hover {
+  header .gnav.active .social-menu .social-link.github:hover {
     background: #333;
     color: white;
   }
@@ -250,7 +260,8 @@
   header .gnav .menu li {
     margin: 0;
     text-align: center;
-    width: 100%;
+    width: auto;
+    max-width: 200px;
   }
 
   header .gnav .menu li + li {
@@ -260,19 +271,17 @@
 
   header .gnav .menu li a {
     font-size: 18px;
-    padding: 12px 20px;
-    display: block;
+    padding: 12px 30px;
+    display: flex;
     color: #333;
     text-decoration: none;
     transition: all 0.2s ease;
-    width: 100%;
     box-sizing: border-box;
     min-height: 44px;
-    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    margin: 0 10px;
+    margin: 0;
   }
 
   header .gnav .menu li a:hover {
