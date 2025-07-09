@@ -1,0 +1,76 @@
+/* ヘッダーとナビゲーション */
+header {
+  width: 100%;
+  height: 100px;
+  background: #ffffff;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+header .header-logo a {
+  color: #333;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+header .gnav .menu {
+  display: flex;
+}
+
+header .gnav .menu li {
+  list-style: none;
+}
+
+header .gnav .menu li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+header .gnav .menu li + li {
+  margin-left: 40px;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}

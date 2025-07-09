@@ -1,0 +1,78 @@
+/* 記事ページ専用スタイル */
+.page-title {
+  align-self: flex-start;
+  border-bottom: 1px solid #ffffff;
+  font-size: 64px;
+  font-weight: 100;
+  margin-left: 100px;
+  display: inline-block;
+}
+
+.articlespage-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  max-width: 1520px;
+  margin: 40px;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: lighter;
+  justify-content: space-between;
+}
+
+.individual-title {
+  align-self: flex-start;
+  border-bottom: 1px solid #ffffff;
+  font-size: 56px;
+  font-weight: 100;
+  margin-left: 100px;
+  margin-top: 0;
+  margin-right: 40px;
+  display: inline-block;
+}
+
+.subtitle {
+  align-self: flex-start;
+  border-bottom: 1px solid #ffffff;
+  font-size: 32px;
+  font-weight: 100;
+  margin-left: 100px;
+  margin-top: 40px;
+  margin-right: 40px;
+  display: inline-block;
+}
+
+.article-content {
+  align-self: flex-start;
+  font-size: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 24px;
+}
+
+.day {
+  font-size: 24px;
+  font-weight: 100;
+  align-self: flex-start;
+  margin-left: 100px;
+  margin-bottom: 0;
+}
+
+.back-button {
+  font-size: 24px;
+  font-weight: 100;
+  align-self: flex-start;
+  margin-top: 32px;
+  margin-left: 64px;
+  margin-bottom: 0;
+}
+
+.back-button a {
+  color: #ffffff;
+  text-decoration: none;
+}
