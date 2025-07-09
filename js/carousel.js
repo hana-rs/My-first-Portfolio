@@ -47,13 +47,16 @@ class CustomCarousel {
         // リンクパスの処理 - トップページからのパスに調整
         const linkPath = slideData.link.startsWith('pages/') ? slideData.link : `pages/${slideData.link}`;
         
+        // スライドデータを要素に保存（後でクリック時に参照するため）
+        slide.dataset.link = linkPath;
+        
         slide.innerHTML = `
-            <a href="${linkPath}">
+            <div class="carousel-slide-content" style="cursor: pointer;">
                 <img src="${imagePath}" alt="${slideData.title}" loading="lazy" 
                      onerror="console.error('画像読み込みエラー:', this.src); this.style.display='none';">
-            </a>
-            <div class="carousel-content">
-                <h2>${slideData.title}</h2>
+                <div class="carousel-content">
+                    <h2>${slideData.title}</h2>
+                </div>
             </div>
         `;
         
@@ -120,6 +123,20 @@ class CustomCarousel {
             this.nextBtn.addEventListener('click', () => this.nextSlide());
         }
         
+        // カルーセルのクリックイベント - 現在のスライドのリンクに遷移
+        this.wrapper.addEventListener('click', (e) => {
+            // ナビゲーションボタンのクリックは除外
+            if (e.target.closest('.carousel-nav')) {
+                return;
+            }
+            
+            const currentSlide = this.slides[this.currentSlide];
+            if (currentSlide && currentSlide.dataset.link) {
+                console.log('カルーセルクリック - 遷移先:', currentSlide.dataset.link);
+                window.location.href = currentSlide.dataset.link;
+            }
+        });
+        
         // キーボードナビゲーション
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
@@ -145,25 +162,38 @@ class CustomCarousel {
     addTouchSupport() {
         let startX = 0;
         let endX = 0;
+        let startY = 0;
+        let endY = 0;
         
         this.wrapper.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
         });
         
         this.wrapper.addEventListener('touchend', (e) => {
             endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
             this.handleSwipe();
         });
         
         const handleSwipe = () => {
             const diffX = startX - endX;
+            const diffY = startY - endY;
             const minSwipeDistance = 50;
             
-            if (Math.abs(diffX) > minSwipeDistance) {
+            // 横方向のスワイプが縦方向より大きい場合のみ処理
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
                 if (diffX > 0) {
                     this.nextSlide();
                 } else {
                     this.prevSlide();
+                }
+            } else if (Math.abs(diffX) < 30 && Math.abs(diffY) < 30) {
+                // タップの場合（移動距離が小さい場合）は現在のスライドのリンクに遷移
+                const currentSlide = this.slides[this.currentSlide];
+                if (currentSlide && currentSlide.dataset.link) {
+                    console.log('カルーセルタップ - 遷移先:', currentSlide.dataset.link);
+                    window.location.href = currentSlide.dataset.link;
                 }
             }
         };
