@@ -497,17 +497,32 @@
   /* ArticleListのモバイル版修正 */
   .articles-list, .articlespage-list {
     width: 95%;
-    margin: 20px auto;
-    padding: 15px;
-    font-size: 16px;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 14px;
   }
 
   .articles-time {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .articles-title {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  /* フッターのモバイル版修正 */
+  footer {
+    margin-top: 25px;
+    padding: 12px 8px;
+  }
+
+  .footer-logo {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .footer-copyright {
+    font-size: 11px;
   }
 }
 
@@ -754,6 +769,22 @@
     padding: 5px;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  /* フッターの極小画面版修正 */
+  footer {
+    margin-top: 15px;
+    padding: 8px 5px;
+  }
+
+  .footer-logo {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+
+  .footer-copyright {
+    font-size: 8px;
+    line-height: 1.2;
   }
 }
 
@@ -1006,6 +1037,21 @@
 
   .articles-title {
     font-size: 14px;
+  }
+
+  /* フッターの小画面版修正 */
+  footer {
+    margin-top: 25px;
+    padding: 12px 8px;
+  }
+
+  .footer-logo {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .footer-copyright {
+    font-size: 11px;
   }
 }
 
