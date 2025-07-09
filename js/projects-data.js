@@ -12,16 +12,16 @@ const projectsData = [
         link: "projects/project1.html",
         description: "Maximum.vcの共同開発プロジェクトにデザイナーとして参加しました。"
     },
-    // {
-    //     id: 2,
-    //     title: "プロジェクト2のタイトル",
-    //     date: "2025.1.15",
-    //     tag: "開発",
-    //     image: "../img/banner1.png",
-    //     homeImage: "img/banner1.png",
-    //     link: "projects/project2.html",
-    //     description: "プロジェクト2の詳細な説明です。"
-    // },
+    {
+        id: 2,
+        title: "ツイステッドワンダーランドのWebツール開発",
+        date: "2025.7.8",
+        tag: "開発",
+        image: "../img/image.png",
+        homeImage: "img/image.png",
+        link: "projects/project2.html",
+        description: "魔法石を計算するWebツールを開発しました。"
+    },
     // {
     //     id: 3,
     //     title: "プロジェクト3のタイトル",

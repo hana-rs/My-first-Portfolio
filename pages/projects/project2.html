@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- headタグ内 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../../css/style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>My First Web Pag</title>
+<script src="../../js/main.js"></script>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../../js/stars.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,        // 自動再生を有効化
+        dots: true,            // ナビゲーション用のドットを表示
+        arrows: false,         // 矢印を表示
+        fade: true,            // フェードの有効化
+        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    });
+});
+</script>
+<body>
+    <div class="container">
+    <header>
+        <div class="header-logo"><a href="../../index.html">Rs's Website</a></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="gnav" id="gnav">
+            <ul class="menu">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../projectslist.html">Projects</a></li>
+                <li><a href="../articleslist.html">Articles</a></li>
+            </ul>
+        </nav>
+    </header>
+   <main class="main">
+  <div class="main-contents">
+    <div class="back-button">
+      <a href="../projectslist.html">Projects一覧に戻る</a>
+    </div>
+    <div class="individual-project-head">
+      <p class="project-time">2025.7.8</p>
+      <div class="project-tag">開発</div>
+    </div>
+    <h2 class="individual-title">ツイステ魔法石計算機 開発記事</h2>
+    <img src="../../img/image.png" class="project-individual-image">
+
+    <h2 class="subtitle">概要</h2>
+    <div class="article-content">
+      <p>「ツイステ魔法石計算機」は、Twisted Wonderland のガチャを引きたい日までにどれだけの魔法石を貯められるかをシミュレーションする Web アプリです。</p>
+      <p>現在の所持石・鍵、誕生日ボーナス、月次配布鍵、30daysパス、初回限定＆有償パッケージなどを総合的に計算し、目標の連数に届かない場合は最適な購入プランを提案します。</p>
+    </div>
+
+    <h2 class="subtitle">開発環境とフレームワーク</h2>
+    <div class="article-content">
+      <ul>
+        <li>JavaScript + React（Function Components + Hooks）</li>
+        <li>Vite（高速開発サーバ＆ビルド）</li>
+        <li>CSS モジュール</li>
+        <li>GitHub Pages でホスティング</li>
+      </ul>
+    </div>
+
+    <h2 class="subtitle">こだわったポイント</h2>
+    <div class="article-content">
+      <ul>
+        <li>状態管理はすべて <code>useState</code> でシンプルに。</li>
+        <li>計算ロジックは副作用なしの純粋関数にまとめ、テストや再利用を容易に。</li>
+        <li>入力→結果表示の UI をカテゴリごとにコンポーネント化し、直感的な操作感を実現。</li>
+        <li>購入プランの最適化アルゴリズムは再帰探索＋枝刈りで高パフォーマンスを維持。</li>
+      </ul>
+    </div>
+
+    <h2 class="subtitle">主な計算ロジック</h2>
+    <div class="article-content">
+      <h3>日付による基本獲得魔法石</h3>
+      <pre><code class="language-js">const diffDays = Math.ceil((target - today) / MS_PER_DAY);
+const stonesPerWeek = 120;
+const stonesPerDay  = stonesPerWeek / 7;
+const basicStones   = diffDays * stonesPerDay; </code></pre>
+
+      <h3>誕生日による鍵計算</h3>
+      <pre><code class="language-js">// CHARACTER_BIRTHDAYS をループして期間内の誕生日をカウント
+function calculateBirthdayKeys(start, end) { … }
+function calculateUserBirthdayKeys(start, end) { … }
+// 1鍵=300魔石相当</code></pre>
+
+      <h3>月次配布鍵・ショップ鍵・イベント鍵</h3>
+      <p>今月分：配布鍵3個、ショップ（10連鍵+鍵3個）実質90魔石、イベント鍵3個（オプション）<br>
+        来月以降：月ごとの合計魔石価値を月数×（配布90+ショップ90+（イベント90））で算出</p>
+
+      <h3>30daysパス累計魔石</h3>
+      <pre><code class="language-js">function calculate30DaysPassActualStones(count, daysUntilTarget) {
+  let total = 0;
+  for (let i = 0; i < count; i++) {
+    const offset = i * 30;
+    if (offset &lt; daysUntilTarget) {
+      total += 48; // 購入即時
+      total += Math.min(daysUntilTarget - offset, 30) * 5;
+    }
+  }
+  return total;
+}</code></pre>
+
+      <h3>購入提案アルゴリズム</h3>
+      <p>初回限定パック、30daysパス、1日限定パック、通常パックを効率（魔石/円）順にソートし、<br>
+        再帰的に「何個買うか」を全探索＋枝刈りし、必要石数を満たす最安組み合わせを出力。</p>
+    </div>
+
+    <h2 class="subtitle">コード構成</h2>
+    <div class="article-content">
+      <ul>
+        <li><code>src/App.jsx</code>：状態管理、計算ロジック、UI を一元管理</li>
+        <li><code>src/App.css</code>：レイアウト＆スタイル</li>
+        <li><code>index.html</code>+Vite 設定ファイル</li>
+      </ul>
+    </div>
+
+    <h2 class="subtitle">まとめと今後の展望</h2>
+    <div class="article-content">
+      <p>本ツールは参考用ですが、React+Vite の軽量構成により高速動作を実現。<br>
+      純粋関数ベースのロジックはテストや機能追加にも強い設計です。</p>
+      <p>今後検討中：</p>
+      <ul>
+        <li>ユニットテスト自動化（Jest+React Testing Library）</li>
+        <li>多言語対応（i18n）</li>
+        <li>モバイル UI 最適化</li>
+        <li>イベント仕様の追加対応</li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-copyright">
+      © 2024-2025 hana-rs<br>All Rights Reserved.
+    </div>
+  </footer>
+</main>
+
+</div>
+</body>
+</html>
