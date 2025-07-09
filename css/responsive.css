@@ -318,6 +318,14 @@
     margin-right: 20px;
   }
 
+  .day {
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.85;
+    color: #bbbbbb;
+    letter-spacing: 0.3px;
+  }
+
   .back-button a {
     font-size: 15px;
     padding: 10px 16px;
@@ -679,6 +687,14 @@
     margin: 5px;
   }
 
+  .day {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.85;
+    color: #bbbbbb;
+    letter-spacing: 0.2px;
+  }
+
   .back-button a {
     font-size: 12px;
     padding: 8px 12px;
@@ -845,6 +861,13 @@
 
   .day, .back-button {
     margin: 2px;
+  }
+
+  .day {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+    color: #bbbbbb;
   }
 
   .back-button a {

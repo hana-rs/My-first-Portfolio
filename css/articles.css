@@ -85,11 +85,17 @@
 }
 
 .day {
-  font-size: 24px;
-  font-weight: 100;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.85;
+  color: #bbbbbb;
+  text-align: left;
+  letter-spacing: 0.5px;
   align-self: flex-start;
-  margin-left: 100px;
-  margin-bottom: 0;
+  margin-left: 64px;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
 .back-button {
