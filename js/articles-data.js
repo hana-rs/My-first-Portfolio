@@ -40,7 +40,7 @@ function generateArticlesList() {
         return;
     }
 
-    // 既存の記事リンクを削除（ページタイトル以外）
+    // 既存の記事リンクを削除（記事リストページ用のもののみ）
     const existingArticles = articlesContainer.querySelectorAll('.articlespage-list');
     existingArticles.forEach(article => article.remove());
 
@@ -81,7 +81,7 @@ function generateHomepageArticles() {
 
     console.log('記事セクションが見つかりました:', articlesSection); // デバッグ用
 
-    // 既存の記事リンクを削除
+    // 既存の記事リンクを削除（トップページ用のもののみ）
     const existingArticles = articlesSection.querySelectorAll('.articles-list');
     console.log('削除する既存記事数:', existingArticles.length); // デバッグ用
     existingArticles.forEach(article => article.remove());
@@ -100,17 +100,27 @@ function generateHomepageArticles() {
     console.log('表示する最新記事:', latestArticles); // デバッグ用
     
     const moreButton = articlesSection.querySelector('.more');
+    const sectionTitle = articlesSection.querySelector('.mainpage-titles');
     console.log('Moreボタン:', moreButton); // デバッグ用
-    // Moreボタンの前に記事を挿入（正しい順序で表示）
-    if (moreButton) {
+    console.log('セクションタイトル:', sectionTitle); // デバッグ用
+    
+    // セクションタイトルの後、Moreボタンの前に記事を挿入
+    if (sectionTitle && moreButton) {
+        latestArticles.forEach((article, index) => {
+            console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
+            const articleElement = createArticleElement(article, true); // true = トップページ用
+            moreButton.insertAdjacentElement('beforebegin', articleElement);
+        });
+    } else if (moreButton) {
+        // セクションタイトルが見つからないがMoreボタンはある場合
         latestArticles.forEach((article, index) => {
             console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
             const articleElement = createArticleElement(article, true); // true = トップページ用
             moreButton.insertAdjacentElement('beforebegin', articleElement);
         });
     } else {
-        // Moreボタンが見つからない場合は、記事セクションに直接追加
-        console.log('Moreボタンが見つかりません。記事セクションに直接追加します。');
+        // Moreボタンが見つからない場合は、記事セクションの末尾に追加
+        console.log('Moreボタンが見つかりません。記事セクションの末尾に追加します。');
         latestArticles.forEach((article, index) => {
             console.log(`記事${index + 1}を追加中:`, article); // デバッグ用
             const articleElement = createArticleElement(article, true);
@@ -225,8 +235,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // 少し遅延させて他のスクリプトが読み込まれるのを待つ
     setTimeout(() => {
         console.log('articles-data.js: 記事リスト生成開始'); // デバッグ用
-        generateArticlesList();
-        generateHomepageArticles();
+        
+        // ページタイプを判定して適切な関数を実行
+        const isArticlesListPage = document.querySelector('.page-title');
+        const isHomePage = document.querySelector('#articles');
+        
+        if (isArticlesListPage && !isHomePage) {
+            // 記事リストページの場合
+            console.log('記事リストページを検出');
+            generateArticlesList();
+        } else if (isHomePage) {
+            // トップページの場合
+            console.log('トップページを検出');
+            generateHomepageArticles();
+        }
     }, 100);
 });
 
@@ -234,6 +256,9 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     console.log('articles-data.js: window load イベント発火'); // デバッグ用
     setTimeout(() => {
-        generateHomepageArticles();
+        const isHomePage = document.querySelector('#articles');
+        if (isHomePage) {
+            generateHomepageArticles();
+        }
     }, 200);
 });
