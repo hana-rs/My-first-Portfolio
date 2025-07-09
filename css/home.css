@@ -2,7 +2,7 @@
 .title {
   width: 40%;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   border-radius: 10px;
   margin-top: 60px;
   margin-right: 0;
@@ -16,7 +16,7 @@
 #about {
   width: 40%;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   border-radius: 16px;
   margin-top: 60px;
   margin-right: 0;
@@ -28,7 +28,7 @@
 #skills {
   width: 40%;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, rgb(255, 255, 255, 0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgb(255, 255, 255, 0.8), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgba(255, 255, 255));
   border-radius: 16px;
   margin-top: 60px;
   margin-right: auto;

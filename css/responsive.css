@@ -15,6 +15,32 @@
     padding: 60px;
   }
 
+  .title {
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    border-radius: 10px;
+    color: #333;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  #about {
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    border-radius: 10px;
+    color: #333;
+    text-align: left;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  #skills {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgb(255, 255, 255, 0.8), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgba(255, 255, 255));
+    border-radius: 10px;
+    color: #333;
+    text-align: right;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
   .page-title {
     font-size: 48px;
     margin-left: 60px;
@@ -240,7 +266,7 @@
     font-size: 24px;
     text-align: center;
     line-height: 1.4;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
     border-radius: 10px;
     color: #333;
     margin-left: auto;
@@ -251,7 +277,7 @@
   }
 
   #about {
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
     border-radius: 10px;
     color: #333;
     text-align: left;
@@ -265,7 +291,7 @@
   }
 
   #skills {
-    background: linear-gradient(90deg, rgb(255, 255, 255, 0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0),rgb(255, 255, 255, 0.8),rgb(255, 255, 255, 1.0),  rgb(255, 255, 255, 1.0), rgb(255, 255, 255, 1.0), rgba(255, 255, 255));
     border-radius: 10px;
     color: #333;
     text-align: right;
