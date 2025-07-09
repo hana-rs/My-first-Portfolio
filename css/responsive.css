@@ -158,6 +158,11 @@
     margin-bottom: 0;
   }
 
+  /* SNSリンクをモバイルで非表示 */
+  .header-social {
+    display: none;
+  }
+
   /* ハンバーガーメニューを表示 */
   .hamburger {
     display: flex !important;
