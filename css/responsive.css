@@ -326,6 +326,11 @@
     letter-spacing: 0.3px;
   }
 
+  .individual-project-head {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .back-button a {
     font-size: 15px;
     padding: 10px 16px;
@@ -982,6 +987,11 @@
     letter-spacing: 0.1px;
   }
 
+  .individual-project-head {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
   /* ArticleListの小画面版修正 */
   .articles-list, .articlespage-list {
     width: 95%;
@@ -1075,6 +1085,11 @@
     padding: 5px 10px;
     margin: 0;
     font-weight: 600;
+  }
+
+  .individual-project-head {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
