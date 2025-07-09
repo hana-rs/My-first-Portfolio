@@ -63,49 +63,57 @@
 
     <h2 class="subtitle">概要</h2>
     <div class="article-content">
-      <p>「ツイステ魔法石計算機」は、Twisted Wonderland のガチャを引きたい日までにどれだけの魔法石を貯められるかをシミュレーションする Web アプリです。</p>
-      <p>現在の所持石・鍵、誕生日ボーナス、月次配布鍵、30daysパス、初回限定＆有償パッケージなどを総合的に計算し、目標の連数に届かない場合は最適な購入プランを提案します。</p>
+      <p><a href="https://twst.rshanabi.com/" style="color: white;">ツイステ魔法石計算機</a>は、ツイステッドワンダーランド のガチャを引きたい日までにどれだけの魔法石を貯められるかをシミュレーションする Web アプリを作った。</p>
+      <p>現在の所持石・鍵、誕生日ボーナス、ショップ交換鍵、30daysパス、初回限定＆有償パックなどを総合的に計算し、目標の連数に届かない場合は最適な購入プランを提案する。</p>
+    </div>
+
+    <h2 class="subtitle">きっかけ</h2>
+    <div class="article-content">
+      <p>ツイステは友達に誘われて始めたゲームで、最初はあまり興味がなかったのですが、ストーリーやキャラクターにどんどん惹かれていきました。</p>
+      <p>しかし、ガチャを引くための魔法石をどれだけ貯めればいいのか、いつまでにどれだけの石が必要なのかが分からず、その度に電卓を叩いて計算していました。</p>
+      <p>そこで、ツイステのガチャを引きたい日までにどれだけの魔法石を貯められるかをシミュレーションする Web アプリを作ることにしました。</p>
+      <p>このアプリは、ツイステのガチャを引くための魔法石を効率的に貯めるためのツールとして、ツイステプレイヤーの皆さんに役立ててもらえることを願っています。</p>
     </div>
 
     <h2 class="subtitle">開発環境とフレームワーク</h2>
     <div class="article-content">
       <ul>
         <li>JavaScript + React（Function Components + Hooks）</li>
-        <li>Vite（高速開発サーバ＆ビルド）</li>
-        <li>CSS モジュール</li>
-        <li>GitHub Pages でホスティング</li>
+        <li>Vite</li>
+        <li>cloudflare Workersでデプロイ</li>
       </ul>
     </div>
 
     <h2 class="subtitle">こだわったポイント</h2>
     <div class="article-content">
       <ul>
-        <li>状態管理はすべて <code>useState</code> でシンプルに。</li>
-        <li>計算ロジックは副作用なしの純粋関数にまとめ、テストや再利用を容易に。</li>
-        <li>入力→結果表示の UI をカテゴリごとにコンポーネント化し、直感的な操作感を実現。</li>
-        <li>購入プランの最適化アルゴリズムは再帰探索＋枝刈りで高パフォーマンスを維持。</li>
+        <li>全部 <code>useState</code> で状態を管理する。</li>
+<li>計算は副作用がない関数にして、テストしやすくする。</li>
+<li>入力と結果の画面をカテゴリごとに分けてコンポーネントにする。</li>
+<li>購入プランは再帰探索＋枝刈りで計算。</li>
+
       </ul>
     </div>
 
     <h2 class="subtitle">主な計算ロジック</h2>
     <div class="article-content">
-      <h3>日付による基本獲得魔法石</h3>
+      <h3>ログインボーナスやミッションで獲得できる魔法石</h3>
       <pre><code class="language-js">const diffDays = Math.ceil((target - today) / MS_PER_DAY);
 const stonesPerWeek = 120;
 const stonesPerDay  = stonesPerWeek / 7;
 const basicStones   = diffDays * stonesPerDay; </code></pre>
 
-      <h3>誕生日による鍵計算</h3>
+      <h3>キャラ・ユーザーの誕生日による鍵計算</h3>
       <pre><code class="language-js">// CHARACTER_BIRTHDAYS をループして期間内の誕生日をカウント
 function calculateBirthdayKeys(start, end) { … }
 function calculateUserBirthdayKeys(start, end) { … }
 // 1鍵=300魔石相当</code></pre>
 
-      <h3>月次配布鍵・ショップ鍵・イベント鍵</h3>
+      <h3>ショップで交換できる鍵</h3>
       <p>今月分：配布鍵3個、ショップ（10連鍵+鍵3個）実質90魔石、イベント鍵3個（オプション）<br>
         来月以降：月ごとの合計魔石価値を月数×（配布90+ショップ90+（イベント90））で算出</p>
 
-      <h3>30daysパス累計魔石</h3>
+      <h3>30daysパスの計算</h3>
       <pre><code class="language-js">function calculate30DaysPassActualStones(count, daysUntilTarget) {
   let total = 0;
   for (let i = 0; i < count; i++) {
@@ -119,30 +127,15 @@ function calculateUserBirthdayKeys(start, end) { … }
 }</code></pre>
 
       <h3>購入提案アルゴリズム</h3>
-      <p>初回限定パック、30daysパス、1日限定パック、通常パックを効率（魔石/円）順にソートし、<br>
+      <p>初回限定パック、30daysパス、1日限定パック、通常パックを効率（魔法石/円）順にソートし、<br>
         再帰的に「何個買うか」を全探索＋枝刈りし、必要石数を満たす最安組み合わせを出力。</p>
-    </div>
-
-    <h2 class="subtitle">コード構成</h2>
-    <div class="article-content">
-      <ul>
-        <li><code>src/App.jsx</code>：状態管理、計算ロジック、UI を一元管理</li>
-        <li><code>src/App.css</code>：レイアウト＆スタイル</li>
-        <li><code>index.html</code>+Vite 設定ファイル</li>
-      </ul>
     </div>
 
     <h2 class="subtitle">まとめと今後の展望</h2>
     <div class="article-content">
-      <p>本ツールは参考用ですが、React+Vite の軽量構成により高速動作を実現。<br>
-      純粋関数ベースのロジックはテストや機能追加にも強い設計です。</p>
-      <p>今後検討中：</p>
-      <ul>
-        <li>ユニットテスト自動化（Jest+React Testing Library）</li>
-        <li>多言語対応（i18n）</li>
-        <li>モバイル UI 最適化</li>
-        <li>イベント仕様の追加対応</li>
-      </ul>
+      <p>もっとツイステっぽいデザインに変えてみたい(カラーコードはちゃんとそろえたはずなのに、なんかライザップっぽくなってしまった…)</p>
+      <p>視認性向上など、HCIの知識を生かして使いやすいアプリに改良したい。</p>
+      <p>今後はバトルなどに使える別ツールも作ってみたい。</p>
     </div>
   </div>
   <footer>
