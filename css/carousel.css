@@ -1,18 +1,22 @@
-/* カスタムカルーセル（jQueryなし） */
+/* カスタムカルーセル（jQueryなし） - シックなデザイン */
 .carousel-container {
   position: relative;
-  width: 70%;
-  max-width: 600px;
+  width: 85%;
+  max-width: 800px;
   margin: 20px auto;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 
+              0 1px 3px rgba(255, 255, 255, 0.1) inset;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .carousel-slide {
@@ -35,6 +39,13 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
+  filter: brightness(0.85) contrast(1.1) saturate(0.9);
+  transition: filter 0.3s ease;
+}
+
+.carousel-slide:hover img {
+  filter: brightness(0.9) contrast(1.15) saturate(1);
 }
 
 .carousel-content {
@@ -42,150 +53,141 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  color: white;
-  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  color: #f8f8f8;
+  padding: 24px 20px 20px;
   text-align: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  backdrop-filter: blur(8px);
 }
 
 .carousel-content h2 {
   margin: 0;
-  font-size: 1.5em;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 1.3em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  color: #e8e8e8;
 }
 
-/* ドット（インジケーター） */
+/* インジケーター - 線状デザイン（画像内配置） */
 .carousel-dots {
   position: absolute;
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   z-index: 10;
 }
 
 .carousel-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-dot.active {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  width: 30px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+              0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.8);
-  transform: scale(1.1);
-}
-
-/* 矢印ナビゲーション（オプション） */
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  font-size: 24px;
-  padding: 15px 20px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-}
-
-.carousel-nav:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-nav.prev {
-  left: 15px;
-}
-
-.carousel-nav.next {
-  right: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  width: 25px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .carousel-container {
-    width: 90%;
-    max-width: 400px;
+    width: 95%;
+    max-width: 500px;
   }
   
   .carousel-wrapper {
-    height: 250px;
+    height: 280px;
+  }
+  
+  .carousel-content {
+    padding: 18px 16px 16px;
   }
   
   .carousel-content h2 {
-    font-size: 1.2em;
-  }
-  
-  .carousel-nav {
-    font-size: 18px;
-    padding: 10px 15px;
-  }
-  
-  .carousel-nav.prev {
-    left: 10px;
-  }
-  
-  .carousel-nav.next {
-    right: 10px;
+    font-size: 1.1em;
   }
   
   .carousel-dot {
-    width: 10px;
-    height: 10px;
+    width: 18px;
+    height: 3px;
   }
 }
 
 @media (max-width: 480px) {
   .carousel-container {
-    width: 95%;
-    max-width: 350px;
+    width: 98%;
+    max-width: 400px;
   }
   
   .carousel-wrapper {
-    height: 200px;
+    height: 220px;
   }
   
   .carousel-content {
-    padding: 15px;
+    padding: 15px 12px 12px;
   }
   
   .carousel-content h2 {
-    font-size: 1em;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
   }
   
-  .carousel-nav {
-    display: none; /* 小さな画面では矢印を非表示 */
+  .carousel-dot {
+    width: 16px;
+    height: 2px;
   }
 }
 
-/* アニメーション */
-@keyframes slideIn {
+/* アニメーション - よりスムーズで洗練された効果 */
+@keyframes fadeInSlide {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    transform: scale(1.02);
+    filter: blur(1px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
+    filter: blur(0);
   }
 }
 
 .carousel-slide.slide-in {
-  animation: slideIn 0.5s ease-out;
+  animation: fadeInSlide 0.6s ease-out;
+}
+
+/* スライド切り替え時のスムーズな効果 */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  list-style: none;
+}
+
+.carousel-slide.active {
+  opacity: 1;
 }
