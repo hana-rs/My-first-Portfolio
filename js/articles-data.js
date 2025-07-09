@@ -81,10 +81,12 @@ function generateHomepageArticles() {
 
     console.log('記事セクションが見つかりました:', articlesSection); // デバッグ用
 
-    // 既存の記事リンクを削除（トップページ用のもののみ）
+    // 既存の記事リンクとグリッドコンテナを削除
     const existingArticles = articlesSection.querySelectorAll('.articles-list');
+    const existingGrid = articlesSection.querySelector('.articles-grid');
     console.log('削除する既存記事数:', existingArticles.length); // デバッグ用
     existingArticles.forEach(article => article.remove());
+    if (existingGrid) existingGrid.remove();
 
     // 記事データを日付順（新しい順）でソート
     const sortedArticles = articlesData.sort((a, b) => {
@@ -104,15 +106,8 @@ function generateHomepageArticles() {
     console.log('Moreボタン:', moreButton); // デバッグ用
     console.log('セクションタイトル:', sectionTitle); // デバッグ用
     
-    // セクションタイトルの後、Moreボタンの前に記事を挿入
-    if (sectionTitle && moreButton) {
-        latestArticles.forEach((article, index) => {
-            console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
-            const articleElement = createArticleElement(article, true); // true = トップページ用
-            moreButton.insertAdjacentElement('beforebegin', articleElement);
-        });
-    } else if (moreButton) {
-        // セクションタイトルが見つからないがMoreボタンはある場合
+    // 記事を縦に並べて挿入
+    if (moreButton) {
         latestArticles.forEach((article, index) => {
             console.log(`記事${index + 1}を挿入中:`, article); // デバッグ用
             const articleElement = createArticleElement(article, true); // true = トップページ用
@@ -141,16 +136,23 @@ function createArticleElement(article, isHomepage = false) {
         articleLink.className = 'articles-list';
         articleLink.href = article.homeLink;
         console.log('トップページ用記事要素作成:', article.homeLink); // デバッグ用
+        
+        // トップページ用：Articlesページと同じデザイン
+        articleLink.innerHTML = `
+            <span class="articles-time">${article.date}</span>
+            <span class="articles-title">${article.title}</span>
+        `;
     } else {
         articleLink.className = 'articlespage-list';
         articleLink.href = article.link;
         console.log('記事リストページ用要素作成:', article.link); // デバッグ用
+        
+        // 記事リストページ用：既存のデザインを維持
+        articleLink.innerHTML = `
+            <span class="articles-time">${article.date}</span>
+            <span class="articles-title">${article.title}</span>
+        `;
     }
-
-    articleLink.innerHTML = `
-        <span class="articles-time">${article.date}</span>
-        <span class="articles-title">${article.title}</span>
-    `;
 
     console.log('作成された記事要素:', articleLink); // デバッグ用
     return articleLink;

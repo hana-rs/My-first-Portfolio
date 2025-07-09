@@ -75,6 +75,22 @@
   .project-title {
     font-size: 18px;
   }
+
+  /* ArticleListのタブレット版修正 */
+  .articles-list, .articlespage-list {
+    width: 90%;
+    margin: 30px auto;
+    padding: 18px;
+    font-size: 20px;
+  }
+
+  .articles-time {
+    font-size: 16px;
+  }
+
+  .articles-title {
+    font-size: 20px;
+  }
 }
 
 /* Mobile Landscape */
@@ -414,6 +430,22 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 1.4;
+  }
+
+  /* ArticleListのモバイル版修正 */
+  .articles-list, .articlespage-list {
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .articles-time {
+    font-size: 13px;
+  }
+
+  .articles-title {
+    font-size: 16px;
   }
 }
 
@@ -847,6 +879,22 @@
     font-size: 11px;
     padding: 5px 10px;
     margin: 3px;
+  }
+
+  /* ArticleListの小画面版修正 */
+  .articles-list, .articlespage-list {
+    width: 95%;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .articles-time {
+    font-size: 11px;
+  }
+
+  .articles-title {
+    font-size: 14px;
   }
 }
 
