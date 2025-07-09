@@ -1,8 +1,8 @@
 /* カスタムカルーセル（jQueryなし） - シックなデザイン */
 .carousel-container {
   position: relative;
-  width: 95%;
-  max-width: 1200px;
+  width: 85%;
+  max-width: 800px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 8px;
@@ -10,14 +10,14 @@
               0 1px 3px rgba(255, 255, 255, 0.1) inset;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  min-height: 550px; /* 最小高さを保証 */
+  min-height: 400px; /* 最小高さを保証 */
   display: block; /* 表示を確保 */
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  height: 550px;
+  height: 400px;
   background: rgba(0, 0, 0, 0.1);
   display: block; /* 表示を確保 */
 }
@@ -115,15 +115,16 @@
 @media (max-width: 768px) {
   .carousel-container {
     width: 95%;
-    max-width: 700px;
+    max-width: 500px;
+    min-height: 280px;
   }
   
   .carousel-wrapper {
-    height: 400px;
+    height: 280px;
   }
   
   .carousel-content {
-    padding: 18px 16px 16px;
+    padding: 18px 16px 20px;
   }
   
   .carousel-content h2 {
@@ -139,15 +140,16 @@
 @media (max-width: 480px) {
   .carousel-container {
     width: 98%;
-    max-width: 500px;
+    max-width: 400px;
+    min-height: 220px;
   }
   
   .carousel-wrapper {
-    height: 300px;
+    height: 220px;
   }
   
   .carousel-content {
-    padding: 15px 12px 12px;
+    padding: 15px 12px 18px;
   }
   
   .carousel-content h2 {
