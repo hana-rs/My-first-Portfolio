@@ -159,7 +159,7 @@
   }
 
   .title, #about, #skills {
-    width: 80%;
+    width: 95%;
     padding: 45px 35px;
     margin: 25px auto;
     max-width: none;
@@ -333,8 +333,8 @@
   }
 
   .title, #about, #skills {
-    width: 90%;
-    max-width: 90%;
+    width: 98%;
+    max-width: 98%;
     padding: 8px 5px;
     margin: 5px auto;
     font-size: 10px;
@@ -541,7 +541,7 @@
   }
 
   .title, #about, #skills {
-    width: 95%;
+    width: 99%;
     padding: 5px 2px;
     margin: 3px auto;
     font-size: 8px;
@@ -693,6 +693,13 @@
   .articles-title {
     font-size: 16px;
   }
+
+  /* モバイル版のコンテンツ幅調整 */
+  .title, #about, #skills {
+    width: 98%;
+    padding: 30px 25px;
+    margin: 20px auto;
+  }
 }
 
 /* Extra Small Mobile Screens (320px and below) */
@@ -728,6 +735,13 @@
   .articles-title {
     font-size: 14px;
     line-height: 1.3;
+  }
+
+  /* 極小画面でのコンテンツ幅調整 */
+  .title, #about, #skills {
+    width: 99%;
+    padding: 20px 15px;
+    margin: 15px auto;
   }
 }
 
