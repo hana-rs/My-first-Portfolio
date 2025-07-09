@@ -21,6 +21,12 @@ function addProject(title, date, tag, imagePath, linkPath, description = '') {
     };
     
     addNewProject(newProject);
+    
+    // トップページのカルーセルも更新
+    if (typeof generateHomepageCarousel === 'function') {
+        generateHomepageCarousel();
+    }
+    
     return newProject;
 }
 
@@ -145,7 +151,7 @@ function showUsageExamples() {
     console.log(`
 === プロジェクト管理システム 使用例 ===
 
-1. 新しいプロジェクトを追加:
+1. 新しいプロジェクトを追加（プロジェクトリスト & トップページカルーセルに自動反映）:
    addProject(
        "新しいプロジェクト",
        "2025.3.15",
@@ -164,14 +170,20 @@ function showUsageExamples() {
 4. プロジェクトを検索:
    searchProjects("Maximum");
 
-5. 最新のプロジェクトを3件取得:
+5. 最新のプロジェクトを3件取得（カルーセル表示分）:
    getLatestProjects(3);
 
 6. プロジェクトデータをエクスポート:
    exportProjectsAsJSON();
 
-7. プロジェクトを削除:
+7. プロジェクトを削除（カルーセルからも自動削除）:
    removeProject(1); // ID:1のプロジェクトを削除
+
+8. カルーセルを手動で再生成:
+   generateHomepageCarousel();
+
+注意: プロジェクトの追加・削除・更新は自動的にトップページのカルーセルにも反映されます。
+カルーセルには最新の3件のプロジェクトが表示されます。
 
 詳細はブラウザの開発者コンソールで各関数を実行してください。
     `);

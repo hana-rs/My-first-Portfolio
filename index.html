@@ -13,20 +13,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
     <title>Rs's Website</title>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/stars.js"></script>
 <script>
-    $(document).ready(function () {
-    $('.slider').slick({
-        autoplay: true,        // 自動再生を有効化
-        dots: true,            // ナビゲーション用のドットを表示
-        arrows: false,         // 矢印を表示
-        fade: true,            // フェードの有効化
-        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    // Slickカルーセルが確実に動作するように追加の初期化処理
+    $(document).ready(function() {
+        // DOM完全読み込み後に再度カルーセルを初期化
+        setTimeout(function() {
+            if (typeof generateHomepageCarousel === 'function') {
+                generateHomepageCarousel();
+            }
+        }, 500);
     });
-});
 </script>
 <body>
     <div class="container">
@@ -70,25 +66,7 @@
     <div id="projects">
     <h2 class="mainpage-titles">Projects</h2>
         <ul class="slider">
-            <div class="slick-outer">
-            <li><a href="pages/projects/project1.html"><img src="img/banner1.png"></a></li>
-            <div class="slick-content">
-                <h2>Maximum.vcの共同開発にデザイナーとして参加</h2>
-                
-                </div>
-            </div>
-            <!-- <div class="slick-outer">
-                <li><a href="pages/projects/project2.html"><img src="img/banner2.png"></a></li>
-                <div class="slick-content">
-                    <h2>デュース・スペード</h2>
-                </div>
-            </div>
-            <div class="slick-outer">
-                <li><a href=""><img src="img/banner3.png"></a></li>
-                <div class="slick-content">
-                    <h2>ジャミル・バイパー</h2>
-                </div>
-            </div> -->
+            <!-- プロジェクトスライドはJavaScriptで動的に生成されます -->
         </ul>
     <a class="more" href="pages/projectslist.html">More</a>
     </div>
@@ -106,5 +84,23 @@
     </footer>
 </main>
 </div>
+
+<!-- JavaScript の読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/stars.js"></script>
+<script src="js/projects-data.js"></script>
+<script>
+    // Slickカルーセルが確実に動作するように追加の初期化処理
+    $(document).ready(function() {
+        // DOM完全読み込み後に再度カルーセルを初期化
+        setTimeout(function() {
+            if (typeof generateHomepageCarousel === 'function') {
+                generateHomepageCarousel();
+            }
+        }, 500);
+    });
+</script>
 </body>
 </html>
