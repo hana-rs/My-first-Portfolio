@@ -12,26 +12,26 @@ const projectsData = [
         link: "projects/project1.html",
         description: "Maximum.vcの共同開発プロジェクトにデザイナーとして参加しました。"
     },
-    {
-        id: 2,
-        title: "プロジェクト2のタイトル",
-        date: "2025.1.15",
-        tag: "開発",
-        image: "../img/banner1.png",
-        homeImage: "img/banner1.png",
-        link: "projects/project2.html",
-        description: "プロジェクト2の詳細な説明です。"
-    },
-    {
-        id: 3,
-        title: "プロジェクト3のタイトル",
-        date: "2025.2.1",
-        tag: "UI/UX",
-        image: "../img/banner1.png",
-        homeImage: "img/banner1.png",
-        link: "projects/project3.html",
-        description: "プロジェクト3の詳細な説明です。"
-    }
+    // {
+    //     id: 2,
+    //     title: "プロジェクト2のタイトル",
+    //     date: "2025.1.15",
+    //     tag: "開発",
+    //     image: "../img/banner1.png",
+    //     homeImage: "img/banner1.png",
+    //     link: "projects/project2.html",
+    //     description: "プロジェクト2の詳細な説明です。"
+    // },
+    // {
+    //     id: 3,
+    //     title: "プロジェクト3のタイトル",
+    //     date: "2025.2.1",
+    //     tag: "UI/UX",
+    //     image: "../img/banner1.png",
+    //     homeImage: "img/banner1.png",
+    //     link: "projects/project3.html",
+    //     description: "プロジェクト3の詳細な説明です。"
+    // }
     // 新しいプロジェクトを追加する場合は、以下の形式で配列に追加してください：
     /*
     {
