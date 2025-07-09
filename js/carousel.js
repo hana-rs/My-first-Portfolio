@@ -211,6 +211,15 @@ function initializeProjectCarousel() {
         try {
             projectCarousel = new CustomCarousel(carouselContainer);
             console.log('カスタムカルーセルが初期化されました');
+            
+            // 初期化完了後、すぐにプロジェクトデータの読み込みを試行
+            if (typeof generateHomepageCarousel === 'function') {
+                console.log('carousel.js: 初期化後すぐにカルーセル生成を試行'); // デバッグ用
+                setTimeout(() => {
+                    generateHomepageCarousel();
+                }, 50);
+            }
+            
         } catch (error) {
             console.error('カルーセル初期化中にエラーが発生しました:', error);
         }
