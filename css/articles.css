@@ -76,3 +76,55 @@
   color: #ffffff;
   text-decoration: none;
 }
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .articlespage-list {
+    margin: 16px;
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .page-title {
+    font-size: 48px;
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .articlespage-list {
+    margin: 12px;
+    padding: 16px;
+  }
+  
+  .page-title {
+    font-size: 36px;
+    margin-left: 20px;
+  }
+  
+  .individual-title {
+    font-size: 40px;
+    margin-left: 50px;
+  }
+  
+  .subtitle {
+    font-size: 24px;
+    margin-left: 50px;
+  }
+  
+  .article-content {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 18px;
+  }
+  
+  .day {
+    margin-left: 50px;
+    font-size: 20px;
+  }
+  
+  .back-button {
+    margin-left: 32px;
+    font-size: 20px;
+  }
+}
