@@ -39,6 +39,22 @@
     width: 30%;
     margin-left: 120px;
   }
+
+  /* ArticleListのタブレット版修正 */
+  .articlespage-list {
+    width: 90%;
+    margin: 30px auto;
+    padding: 18px;
+    font-size: 20px;
+  }
+
+  .articles-time {
+    font-size: 18px;
+  }
+
+  .articles-title {
+    font-size: 20px;
+  }
 }
 
 /* Mobile Landscape */
@@ -341,17 +357,20 @@
     max-width: none;
     margin: 20px auto;
     padding: 15px;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: none;
     text-decoration: none;
     color: #ffffff;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .articles-list:hover, .articlespage-list:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
   }
 
   .articles-time {
