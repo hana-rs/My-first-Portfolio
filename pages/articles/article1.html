@@ -13,6 +13,7 @@
 </head>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../../js/stars.js"></script>
 <script>
     $(document).ready(function () {
     $('.slider').slick({
@@ -22,6 +23,28 @@
         fade: true,            // フェードの有効化
         autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
     });
+});
+
+// ハンバーガーメニューの制御
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const gnav = document.getElementById('gnav');
+    
+    if (hamburger && gnav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            gnav.classList.toggle('active');
+        });
+        
+        // メニュー項目がクリックされたときにメニューを閉じる
+        const menuLinks = gnav.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                gnav.classList.remove('active');
+            });
+        });
+    }
 });
 </script>
 <body>
