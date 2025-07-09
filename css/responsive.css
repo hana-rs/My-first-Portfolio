@@ -273,6 +273,44 @@
   .project-title p {
     margin: 20px;
   }
+
+  /* ArticleListのモバイル版修正 */
+  .articles-list, .articlespage-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    max-width: none;
+    margin: 20px auto;
+    padding: 15px;
+    border-bottom: 1px solid #ffffff;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .articles-list:hover, .articlespage-list:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .articles-time {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .articles-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
 }
 
 /* Ultra small screens (200px and below) */
@@ -392,6 +430,11 @@
     box-sizing: border-box;
     word-wrap: break-word;
     min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
   }
 
   .page-title {
@@ -544,6 +587,11 @@
     padding: 3px 1px;
     margin: 3px auto;
     min-height: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
   }
 
   .page-title {
@@ -629,6 +677,22 @@
     margin-top: 40px;
     margin-bottom: 80px;
   }
+
+  /* ArticleListの小画面版修正 */
+  .articles-list, .articlespage-list {
+    width: 95%;
+    margin: 15px auto;
+    padding: 12px;
+  }
+
+  .articles-time {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .articles-title {
+    font-size: 16px;
+  }
 }
 
 /* Extra Small Mobile Screens (320px and below) */
@@ -647,6 +711,23 @@
   .mainpage-titles {
     font-size: 18px;
     padding: 12px 8px;
+  }
+
+  /* ArticleListの極小画面版修正 */
+  .articles-list, .articlespage-list {
+    width: 98%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .articles-time {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .articles-title {
+    font-size: 14px;
+    line-height: 1.3;
   }
 }
 
