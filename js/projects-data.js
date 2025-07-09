@@ -152,38 +152,57 @@ function filterProjectsByTag(tag) {
 // トップページのカルーセルを生成する関数
 function generateHomepageCarousel() {
     console.log('generateHomepageCarousel called'); // デバッグ用
+    console.log('projectCarousel exists:', typeof projectCarousel !== 'undefined' && projectCarousel); // デバッグ用
+    console.log('projectsData:', projectsData); // デバッグ用
     
     // カルーセルインスタンスが存在しない場合は初期化を待つ
     if (!projectCarousel) {
         console.log('カルーセルが初期化されていません。少し待ってから再試行します。');
         setTimeout(() => {
             generateHomepageCarousel();
-        }, 100);
+        }, 200);
         return;
     }
 
-    // 既存のスライドをクリア
-    projectCarousel.clear();
+    try {
+        // 既存のスライドをクリア
+        projectCarousel.clear();
 
-    // プロジェクトデータを日付順（新しい順）でソート
-    const sortedProjects = projectsData.sort((a, b) => {
-        const dateA = new Date(a.date.replace(/\./g, '-'));
-        const dateB = new Date(b.date.replace(/\./g, '-'));
-        return dateB - dateA;
-    });
+        // プロジェクトデータを日付順（新しい順）でソート
+        const sortedProjects = projectsData.sort((a, b) => {
+            const dateA = new Date(a.date.replace(/\./g, '-'));
+            const dateB = new Date(b.date.replace(/\./g, '-'));
+            return dateB - dateA;
+        });
 
-    console.log('ソートされたプロジェクトデータ:', sortedProjects); // デバッグ用
+        console.log('ソートされたプロジェクトデータ:', sortedProjects); // デバッグ用
 
-    // 最新の3件をカルーセルに追加
-    const latestProjects = sortedProjects.slice(0, 3);
-    console.log('表示する最新プロジェクト:', latestProjects); // デバッグ用
-    
-    latestProjects.forEach((project, index) => {
-        console.log(`プロジェクト${index + 1}をカルーセルに追加:`, project); // デバッグ用
-        projectCarousel.addSlide(project);
-    });
-    
-    console.log('カルーセルの生成完了'); // デバッグ用
+        // 最新の3件をカルーセルに追加
+        const latestProjects = sortedProjects.slice(0, 3);
+        console.log('表示する最新プロジェクト:', latestProjects); // デバッグ用
+        
+        if (latestProjects.length === 0) {
+            console.warn('表示するプロジェクトがありません');
+            return;
+        }
+        
+        latestProjects.forEach((project, index) => {
+            console.log(`プロジェクト${index + 1}をカルーセルに追加:`, project); // デバッグ用
+            
+            // 画像パスをより確実にチェック
+            const imagePath = project.homeImage || project.image || 'img/banner1.png';
+            console.log(`使用する画像パス: ${imagePath}`); // デバッグ用
+            
+            projectCarousel.addSlide({
+                ...project,
+                homeImage: imagePath
+            });
+        });
+        
+        console.log('カルーセルの生成完了'); // デバッグ用
+    } catch (error) {
+        console.error('カルーセル生成中にエラーが発生しました:', error);
+    }
 }
 
 // プロジェクト追加時にカルーセルも更新する関数を修正

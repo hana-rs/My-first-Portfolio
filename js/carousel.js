@@ -37,14 +37,20 @@ class CustomCarousel {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         
+        // 画像パスのフォールバック処理
+        const imagePath = slideData.homeImage || slideData.image || 'img/banner1.png';
+        
         slide.innerHTML = `
             <a href="pages/${slideData.link}">
-                <img src="${slideData.homeImage || slideData.image}" alt="${slideData.title}" loading="lazy">
+                <img src="${imagePath}" alt="${slideData.title}" loading="lazy" 
+                     onerror="console.error('画像読み込みエラー:', this.src); this.style.display='none';">
             </a>
             <div class="carousel-content">
                 <h2>${slideData.title}</h2>
             </div>
         `;
+        
+        console.log('スライド要素作成:', slideData.title, 'パス:', imagePath); // デバッグ用
         
         return slide;
     }
@@ -197,11 +203,17 @@ let projectCarousel = null;
 
 // カルーセル初期化関数
 function initializeProjectCarousel() {
+    console.log('カルーセル初期化開始'); // デバッグ用
+    
     const carouselContainer = document.querySelector('.carousel-container');
     
     if (carouselContainer) {
-        projectCarousel = new CustomCarousel(carouselContainer);
-        console.log('カスタムカルーセルが初期化されました');
+        try {
+            projectCarousel = new CustomCarousel(carouselContainer);
+            console.log('カスタムカルーセルが初期化されました');
+        } catch (error) {
+            console.error('カルーセル初期化中にエラーが発生しました:', error);
+        }
     } else {
         console.log('カルーセルコンテナが見つかりません');
     }
@@ -209,5 +221,14 @@ function initializeProjectCarousel() {
 
 // DOMが読み込まれたら初期化
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('carousel.js: DOMContentLoaded'); // デバッグ用
     initializeProjectCarousel();
+});
+
+// さらに確実にするため、window.loadでも試行
+window.addEventListener('load', () => {
+    console.log('carousel.js: window load'); // デバッグ用
+    if (!projectCarousel) {
+        initializeProjectCarousel();
+    }
 });
