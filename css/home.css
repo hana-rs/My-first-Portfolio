@@ -17,7 +17,7 @@
   width: 40%;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  border-radius: 10px;
+  border-radius: 16px;
   margin-top: 60px;
   margin-right: 0;
   margin-left: auto;
@@ -29,7 +29,7 @@
   width: 40%;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(255, 255, 255, 0), rgb(255, 255, 255, 0.8), rgba(255, 255, 255));
-  border-radius: 10px;
+  border-radius: 16px;
   margin-top: 60px;
   margin-right: auto;
   margin-left: 0;
@@ -67,6 +67,7 @@
   outline-offset: 5px;
   margin: 2px;
   margin-bottom: 48px;
+  border-radius: 16px;
 }
 
 #projects {
@@ -116,7 +117,7 @@
   font-size: 24px;
   font-weight: lighter;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 16px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.2);
