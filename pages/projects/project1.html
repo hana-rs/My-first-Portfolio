@@ -25,6 +25,32 @@
         autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
     });
 });
+
+// トップに戻るボタンの機能
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    
+    if (scrollToTopButton) {
+        // スクロールイベントを監視してボタンの表示/非表示を制御
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // ボタンクリック時にトップへスムーススクロール
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
+// プロジェクトページ用のスクリプト
 </script>
 <body>
     <div class="container">
@@ -95,6 +121,14 @@
     <div class="footer-copyright">© 2024-2025 hana-rs<br>All Rights Reserved.</div>
     </footer>
 </main>
+
+<!-- トップに戻るボタン -->
+<button id="scroll-to-top" class="scroll-to-top" aria-label="ページトップへ戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
 </div>
 </body>
 </html>
