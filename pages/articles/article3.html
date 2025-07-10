@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../../css/style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>My First Web Pag</title>
+<script src="../../js/main.js"></script>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../../js/stars.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,        // 自動再生を有効化
+        dots: true,            // ナビゲーション用のドットを表示
+        arrows: false,         // 矢印を表示
+        fade: true,            // フェードの有効化
+        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    });
+});
+
+// ハンバーガーメニューの制御
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const gnav = document.getElementById('gnav');
+    
+    if (hamburger && gnav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            gnav.classList.toggle('active');
+        });
+        
+        // メニュー項目がクリックされたときにメニューを閉じる
+        const menuLinks = gnav.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                gnav.classList.remove('active');
+            });
+        });
+    }
+});
+
+// トップに戻るボタンの機能
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    
+    if (scrollToTopButton) {
+        // スクロールイベントを監視してボタンの表示/非表示を制御
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // ボタンクリック時にトップへスムーススクロール
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+<body>
+    <div class="container">
+    <header>
+        <div class="header-logo"><a href="../../index.html">Rs's Website</a></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="gnav" id="gnav">
+            <ul class="menu">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../projectslist.html">Projects</a></li>
+                <li><a href="../articleslist.html">Articles</a></li>
+            </ul>
+            <div class="social-menu">
+                <a href="https://x.com/rs_brzi" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="X (Twitter)">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/hana-rs" target="_blank" rel="noopener noreferrer" class="social-link github" aria-label="GitHub">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+    <div class="main-contents">
+    <div class = "back-button">
+        <a href="../articleslist.html">Articles一覧に戻る</a>
+    </div>
+    <p class="day">2025.7.10</p>
+    <h2 class="individual-title">ポートフォリオサイトを更新しました</h2>
+    <h2 class="subtitle">きっかけ</h2>
+    <div class="article-content">
+    <p>サマーインターンの応募でポートフォリオサイトの提出を求められていたので、このポートフォリオサイトの内容を変えようと思ったのがきっかけです。</p>
+    <p>当時のデザイン案にもあった背景の星空エフェクトや、レスポンシブ対応、UIの変更などを行いました。</p>
+    </div>
+    <h2 class="subtitle">ちょっとやってみたこと</h2>
+    <div class="article-content">
+        <p>UIの変更といっても、もともとのデザインはそのままにしようと思いました。(今でもまだまだ初心者だと思っていますが)このサイトを作った当時は更に初心者でした。なのでCSSのファイルとかページごとに分けられておらず、可読性も最悪でした。</p>
+        <p>これ全部読んで作りなおしてってなると締め切りに間に合わないし、更新する度にしんどい思いをするのは嫌だったので、GitHub CopilotのAgentを使って、綺麗に整頓してもらうことにしました。</p>
+        <p>Agentモードは、GitHub CopilotのAIがコードを自動で生成してくれる機能です。使ったのはClaude Sonnet4です。</p>
+    </div>
+    <h2 class="subtitle">使ってみて思ったこと</h2>
+    <div class="article-content">
+        <p>Agentモードを使ってみて、コードの整頓が非常にスムーズに行えたことに驚きました。適当に指示しても大体ちゃんと意味を読み取ってくれます。</p>
+        <p>ただ、やはりAIなので、意図しないコードが生成されることもあります。特に、CSSのマージンやパディングの調整など、微調整が必要な部分では、AIが生成したコードを手動で修正する必要がありました。</p>
+        <p>また、AIが生成したコードは、必ずしも最適なものではないため、最終的には自分で確認し、必要に応じて修正することが重要だと感じました。</p>
+        <p>それでも、全体のコードを整頓する作業は非常に効率的で、時間を大幅に節約できました。特に、レスポンシブ対応やUIの変更など、複雑な部分をAIに任せることで、自分の時間を他の重要なタスクに集中させることができました。</p>
+        <p>今後も、AIを活用して効率的に開発を進めていきたいと思います。</p>
+    </div>
+
+    <h2 class="subtitle">AI時代のエンジニアの在り方</h2>
+    <div class="article-content">
+        <p>Agentモードの登場によって、非エンジニアでもあっという間にWebアプリケーションを作ることができるようになったと思います。</p>
+        <p>学割でAIを無料で使うことができる中、エンジニアのスキルはどのように身に着ければいいのか？という疑問が最近ずっとついて回ってます。</p>
+        <p>今回がっつりAIを使ってプログラミングしてみて思ったことは、(今後どうなるかはわかりませんが…)AIにサイトを作らせると、自分の望むデザインにならないという問題です。文字で指示できても、頭の中のデザインは自分の中にしかないので、AIに伝えるのは難しいです。</p>
+        <p>雛形だけAIに作ってもらって、デザイン修正や機能追加などは自分でやるという流れが、効率化とエンジニアの勉強を両立できる方法なのかなと思いました。</p>
+    </div>
+
+    <h2 class="subtitle">今後の展望</h2>
+    <div class="article-content">
+        <p>次の更新のときはAstroかReactで作りたいなと思っています!!!!!!!!!!!!!!!!!</p>
+        <p>HTMLだと記事かくの大変です💦</p>
+
+    </div>
+    <footer>
+    <div class="footer-copyright">© 2024-2025 hana-rs<br>All Rights Reserved.</div>
+    </footer>
+</main>
+
+<!-- トップに戻るボタン -->
+<button id="scroll-to-top" class="scroll-to-top" aria-label="ページトップへ戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+</div>
+</body>
+</html>
