@@ -17,18 +17,16 @@ const articlesData = [
         link: "articles/article2.html",
         homeLink: "pages/articles/article2.html",
         description: "基本情報技術者試験に合格した報告です。"
-    }
-    // 新しい記事を追加する場合は、以下の形式で配列に追加してください：
-    /*
+    },
     {
         id: 3,
-        title: "新しい記事のタイトル",
-        date: "2025.3.1",
+        title: "機械学習 講義ノートまとめ",
+        date: "2025.7.21",
         link: "articles/article3.html",
         homeLink: "pages/articles/article3.html",
-        description: "記事の説明"
+        description: "機械学習の講義ノートをまとめた記事です。教師あり学習・教師なし学習・強化学習、回帰・識別・SVM・決定木・アンサンブル・クラスタリング・主成分分析・ニューラルネットなど、基礎から応用までを分かりやすく解説しています。"
     }
-    */
+
 ];
 
 // 記事リストを動的に生成する関数（記事リストページ用）
