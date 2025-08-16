@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <h2 class="subtitle">1. 基本の考え方</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>JavaScript (JS)</strong><br>Web の動きを作るプログラミング言語。ボタンを押したときに何かが起きるのも JS。</p>
     <p><strong>TypeScript (TS)</strong><br>JavaScript に「型」というルールを加えて、安全にした言語。→ バグを減らせる。</p>
     <p><strong>React</strong><br>UI（画面）を部品（コンポーネント）として組み立てるライブラリ。→ 「小さい部品を組み合わせて画面を作る」イメージ。</p>
@@ -121,11 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <h2 class="subtitle">2. コンポーネント</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>コンポーネント</strong> = 「画面の部品」</p>
     <p><strong>Props</strong> = コンポーネントに渡すデータ（材料）</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>&lt;!-- Props（材料）の型 --&gt;
 type Props = {
   title: string
@@ -140,17 +140,17 @@ const Header = ({ title }: Props) =&gt; {
 &lt;Header title="こんにちは" /&gt;
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>&lt;Header title="こんにちは" /&gt; で文字を渡している。Props を型で書くから「何を渡せるか」がすぐわかる。</p>
     </div>
 
     <h2 class="subtitle">3. useState（状態）</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>状態（state）</strong> コンポーネントの中で変化するデータ。</p>
     <p><strong>Hook</strong> React が用意した便利関数（useState, useEffect など）。</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>import { useState } from "react"
 
 const Counter = () =&gt; {
@@ -167,17 +167,17 @@ const Counter = () =&gt; {
 }
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>useState(0) → 初期値は 0。count が今の数、setCount が数を変える関数。値を変えると画面も再描画される。</p>
     </div>
 
     <h2 class="subtitle">4. イベント</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>イベント</strong> = ユーザー操作（クリック・入力など）</p>
     <p><strong>イベントハンドラ</strong> = イベントが起きたときに実行される関数</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>const handleClick = (e: React.MouseEvent&lt;HTMLButtonElement&gt;) =&gt; {
   alert("クリックされた！")
 }
@@ -185,17 +185,17 @@ const Counter = () =&gt; {
 &lt;button onClick={handleClick}&gt;クリックしてね&lt;/button&gt;
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>onClick に関数を渡すとクリック時に実行される。e は「イベントの情報」。</p>
     </div>
 
     <h2 class="subtitle">5. フォーム部品</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>テキストボックス</strong> = 文字を入力する欄</p>
     <p><strong>制御されたコンポーネント</strong> = 入力値を state で管理する仕組み</p>
 
-    <p>✅ コード例（テキストボックス）</p>
+    <p>コード例（テキストボックス）</p>
     <pre><code>const [text, setText] = useState&lt;string&gt;("")
 
 &lt;input
@@ -208,10 +208,10 @@ const Counter = () =&gt; {
 &lt;p&gt;入力中: {text}&lt;/p&gt;
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>value={text} → 入力欄と state が同期する。onChange で更新。placeholder は入力前の説明。</p>
 
-    <p>✅ コード例（セレクトボックス）</p>
+    <p>コード例（セレクトボックス）</p>
     <pre><code>const [fruit, setFruit] = useState&lt;string&gt;("apple")
 
 &lt;select value={fruit} onChange={e =&gt; setFruit(e.target.value)}&gt;
@@ -220,7 +220,7 @@ const Counter = () =&gt; {
 &lt;/select&gt;
 </code></pre>
 
-    <p>✅ コード例（チェックボックス）</p>
+    <p>コード例（チェックボックス）</p>
     <pre><code>const [checked, setChecked] = useState&lt;boolean&gt;(false)
 
 &lt;input
@@ -233,11 +233,11 @@ const Counter = () =&gt; {
 
     <h2 class="subtitle">6. リスト表示</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>配列（Array）</strong> = データを並べて持つ形</p>
     <p><strong>map</strong> = 配列の中身を一つずつ処理する関数</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>const fruits = ["りんご", "バナナ", "みかん"]
 
 &lt;ul&gt;
@@ -247,16 +247,16 @@ const Counter = () =&gt; {
 &lt;/ul&gt;
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>map で配列を &lt;li&gt; に変換。key は React が管理のために必要。</p>
     </div>
 
     <h2 class="subtitle">7. useEffect（副作用）</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>副作用（Effect）</strong> = 画面描画以外でやる処理（API呼び出し、タイマーなど）</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>const [text, setText] = useState&lt;string&gt;("")
 
 // 初回だけ実行
@@ -270,16 +270,16 @@ useEffect(() =&gt; {
 }, [text])
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>[] = 初回だけ、[text] = text が変わるたび</p>
     </div>
 
     <h2 class="subtitle">8. 子コンポーネントにデータを渡す</h2>
     <div class="article-content">
-    <p>🔤 用語</p>
+    <p>用語</p>
     <p><strong>Props</strong> = 子コンポーネントに渡すデータ</p>
 
-    <p>✅ コード例</p>
+    <p>コード例</p>
     <pre><code>type ChildProps = { message: string }
 
 const Child = ({ message }: ChildProps) =&gt; &lt;p&gt;{message}&lt;/p&gt;
@@ -287,7 +287,7 @@ const Child = ({ message }: ChildProps) =&gt; &lt;p&gt;{message}&lt;/p&gt;
 const Parent = () =&gt; &lt;Child message="こんにちは" /&gt;
 </code></pre>
 
-    <p>📝 解説</p>
+    <p>解説</p>
     <p>親 → 子に「データ」を渡せる。型を決めておくと安全。</p>
     </div>
 
