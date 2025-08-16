@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../../css/style.css" /> <!-- ←ここ！ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <title>My First Web Pag</title>
+<script src="../../js/main.js"></script>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../../js/stars.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,        // 自動再生を有効化
+        dots: true,            // ナビゲーション用のドットを表示
+        arrows: false,         // 矢印を表示
+        fade: true,            // フェードの有効化
+        autoplaySpeed: 5000,   // 自動再生の速度 (ミリ秒)
+    });
+});
+
+// ハンバーガーメニューの制御
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const gnav = document.getElementById('gnav');
+    
+    if (hamburger && gnav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            gnav.classList.toggle('active');
+        });
+        
+        // メニュー項目がクリックされたときにメニューを閉じる
+        const menuLinks = gnav.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                gnav.classList.remove('active');
+            });
+        });
+    }
+});
+
+// トップに戻るボタンの機能
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    
+    if (scrollToTopButton) {
+        // スクロールイベントを監視してボタンの表示/非表示を制御
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // ボタンクリック時にトップへスムーススクロール
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+<body>
+    <div class="container">
+    <header>
+        <div class="header-logo"><a href="../../index.html">Rs's Website</a></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="gnav" id="gnav">
+            <ul class="menu">
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#skills">Skills</a></li>
+                <li><a href="../projectslist.html">Projects</a></li>
+                <li><a href="../articleslist.html">Articles</a></li>
+            </ul>
+            <div class="social-menu">
+                <a href="https://x.com/rs_brzi" target="_blank" rel="noopener noreferrer" class="social-link twitter" aria-label="X (Twitter)">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/hana-rs" target="_blank" rel="noopener noreferrer" class="social-link github" aria-label="GitHub">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+<main class="main">
+  <div class="main-contents">
+    <div class="back-button">
+      <a href="../articleslist.html">Articles一覧に戻る</a>
+    </div>
+
+    <p class="day">2025.8.16</p>
+    <h1 class="individual-title">React × TypeScript ルールブック（用語解説付き）</h1>
+
+    <h2 class="subtitle">1. 基本の考え方</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>JavaScript (JS)</strong><br>Web の動きを作るプログラミング言語。ボタンを押したときに何かが起きるのも JS。</p>
+    <p><strong>TypeScript (TS)</strong><br>JavaScript に「型」というルールを加えて、安全にした言語。→ バグを減らせる。</p>
+    <p><strong>React</strong><br>UI（画面）を部品（コンポーネント）として組み立てるライブラリ。→ 「小さい部品を組み合わせて画面を作る」イメージ。</p>
+    </div>
+
+    <h2 class="subtitle">2. コンポーネント</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>コンポーネント</strong> = 「画面の部品」</p>
+    <p><strong>Props</strong> = コンポーネントに渡すデータ（材料）</p>
+
+    <p>✅ コード例</p>
+    <pre><code>&lt;!-- Props（材料）の型 --&gt;
+type Props = {
+  title: string
+}
+
+&lt;!-- 関数コンポーネント --&gt;
+const Header = ({ title }: Props) =&gt; {
+  return &lt;h1&gt;{title}&lt;/h1&gt;
+}
+
+&lt;!-- 使う側 --&gt;
+&lt;Header title="こんにちは" /&gt;
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>&lt;Header title="こんにちは" /&gt; で文字を渡している。Props を型で書くから「何を渡せるか」がすぐわかる。</p>
+    </div>
+
+    <h2 class="subtitle">3. useState（状態）</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>状態（state）</strong> コンポーネントの中で変化するデータ。</p>
+    <p><strong>Hook</strong> React が用意した便利関数（useState, useEffect など）。</p>
+
+    <p>✅ コード例</p>
+    <pre><code>import { useState } from "react"
+
+const Counter = () =&gt; {
+  const [count, setCount] = useState&lt;number&gt;(0)
+  // count = 今の数
+  // setCount = 数を更新する関数
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;カウント: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;+1&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>useState(0) → 初期値は 0。count が今の数、setCount が数を変える関数。値を変えると画面も再描画される。</p>
+    </div>
+
+    <h2 class="subtitle">4. イベント</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>イベント</strong> = ユーザー操作（クリック・入力など）</p>
+    <p><strong>イベントハンドラ</strong> = イベントが起きたときに実行される関数</p>
+
+    <p>✅ コード例</p>
+    <pre><code>const handleClick = (e: React.MouseEvent&lt;HTMLButtonElement&gt;) =&gt; {
+  alert("クリックされた！")
+}
+
+&lt;button onClick={handleClick}&gt;クリックしてね&lt;/button&gt;
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>onClick に関数を渡すとクリック時に実行される。e は「イベントの情報」。</p>
+    </div>
+
+    <h2 class="subtitle">5. フォーム部品</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>テキストボックス</strong> = 文字を入力する欄</p>
+    <p><strong>制御されたコンポーネント</strong> = 入力値を state で管理する仕組み</p>
+
+    <p>✅ コード例（テキストボックス）</p>
+    <pre><code>const [text, setText] = useState&lt;string&gt;("")
+
+&lt;input
+  type="text"
+  value={text}
+  onChange={e =&gt; setText(e.target.value)}
+  placeholder="ここに入力"
+/&gt;
+
+&lt;p&gt;入力中: {text}&lt;/p&gt;
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>value={text} → 入力欄と state が同期する。onChange で更新。placeholder は入力前の説明。</p>
+
+    <p>✅ コード例（セレクトボックス）</p>
+    <pre><code>const [fruit, setFruit] = useState&lt;string&gt;("apple")
+
+&lt;select value={fruit} onChange={e =&gt; setFruit(e.target.value)}&gt;
+  &lt;option value="apple"&gt;りんご&lt;/option&gt;
+  &lt;option value="banana"&gt;バナナ&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+    <p>✅ コード例（チェックボックス）</p>
+    <pre><code>const [checked, setChecked] = useState&lt;boolean&gt;(false)
+
+&lt;input
+  type="checkbox"
+  checked={checked}
+  onChange={e =&gt; setChecked(e.target.checked)}
+/&gt;
+</code></pre>
+    </div>
+
+    <h2 class="subtitle">6. リスト表示</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>配列（Array）</strong> = データを並べて持つ形</p>
+    <p><strong>map</strong> = 配列の中身を一つずつ処理する関数</p>
+
+    <p>✅ コード例</p>
+    <pre><code>const fruits = ["りんご", "バナナ", "みかん"]
+
+&lt;ul&gt;
+  {fruits.map((fruit, i) =&gt; (
+    &lt;li key={i}&gt;{fruit}&lt;/li&gt;
+  ))}
+&lt;/ul&gt;
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>map で配列を &lt;li&gt; に変換。key は React が管理のために必要。</p>
+    </div>
+
+    <h2 class="subtitle">7. useEffect（副作用）</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>副作用（Effect）</strong> = 画面描画以外でやる処理（API呼び出し、タイマーなど）</p>
+
+    <p>✅ コード例</p>
+    <pre><code>const [text, setText] = useState&lt;string&gt;("")
+
+// 初回だけ実行
+useEffect(() =&gt; {
+  console.log("初回だけ")
+}, [])
+
+// text が変わるたびに実行
+useEffect(() =&gt; {
+  console.log("入力された:", text)
+}, [text])
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>[] = 初回だけ、[text] = text が変わるたび</p>
+    </div>
+
+    <h2 class="subtitle">8. 子コンポーネントにデータを渡す</h2>
+    <div class="article-content">
+    <p>🔤 用語</p>
+    <p><strong>Props</strong> = 子コンポーネントに渡すデータ</p>
+
+    <p>✅ コード例</p>
+    <pre><code>type ChildProps = { message: string }
+
+const Child = ({ message }: ChildProps) =&gt; &lt;p&gt;{message}&lt;/p&gt;
+
+const Parent = () =&gt; &lt;Child message="こんにちは" /&gt;
+</code></pre>
+
+    <p>📝 解説</p>
+    <p>親 → 子に「データ」を渡せる。型を決めておくと安全。</p>
+    </div>
+
+    <h2 class="subtitle">9. よく出る単語まとめ</h2>
+    <div class="article-content">
+    <ul>
+      <li>コンポーネント = 部品</li>
+      <li>Props = 部品に渡すデータ</li>
+      <li>State = 変化するデータ</li>
+      <li>Event = ユーザー操作</li>
+      <li>Hook = React の便利関数 (useState, useEffect)</li>
+      <li>map = 配列を繰り返し処理</li>
+    </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-copyright">© 2024-2025 hana-rs<br>All Rights Reserved.</div>
+  </footer>
+</main>
+
+<!-- トップに戻るボタン -->
+<button id="scroll-to-top" class="scroll-to-top" aria-label="ページトップへ戻る">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+    </svg>
+</button>
+
+</div>
+</body>
+</html>

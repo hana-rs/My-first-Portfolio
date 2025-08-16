@@ -25,7 +25,15 @@ const articlesData = [
         link: "articles/article3.html",
         homeLink: "pages/articles/article3.html",
         description: "機械学習の講義ノートをまとめた記事です。教師あり学習・教師なし学習・強化学習、回帰・識別・SVM・決定木・アンサンブル・クラスタリング・主成分分析・ニューラルネットなど、基礎から応用までを分かりやすく解説しています。"
-    }
+    },
+    {
+        id: 4,
+        title: "TypeScriptの基礎を学ぶ",
+        date: "2025.8.15",
+        link: "articles/article4.html",
+        homeLink: "pages/articles/article4.html",
+        description: "JavaScriptの基本的な文法と使い方を学ぶ記事です。変数、関数、配列、オブジェクトなど、基礎から応用までをカバーしています。"
+    },
 
 ];
 
